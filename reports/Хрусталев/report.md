@@ -1,0 +1,94 @@
+**Динамическая проверка VulnMart**  
+**Методика**  
+Подготовлен scripts/check_python.py. Проверка запускает реальный HTTP-сервер  
+   
+ Werkzeug на свободном loopback-порту и отдельную временную SQLite-БД. Для клиентов  
+   
+ используются независимые cookie jar. База пересоздаётся только во временном каталоге;  
+   
+ существующая пользовательская vulnmart.db не затрагивается.  
+.venv/bin/python scripts/verify.py --only python  
+   
+Сначала проверяется обычный вход: неверный пароль отклоняется, sarah с правильным  
+   
+ паролем читает собственный заказ 2. Это контроль, позволяющий отличить реальную  
+   
+ ошибку доступа от неработающей авторизации или недоступного сервера.  
+**Найденные дефекты**  
+**PY-01 SQL Injection**  
+Исходник: [projects/python/vulnmart/app.py, строка **133**.  
+   
+ Классификация: **CWE-89**, OWASP  **A03:2021**.](../../projects/python/vulnmart/app.py "../../projects/python/vulnmart/app.py")  
+Имя admin' -- исключает проверку пароля из SQL; получен доступ к заказу администратора.  
+**Доказательство:** [результат проверки. SQLi подтверждена HTTP; изменение данных не проверялось, I:L учитывает действия под чужой учётной записью.](../../reports/participant-02/evidence/vulnmart-sqli.json "../../reports/participant-02/evidence/vulnmart-sqli.json")  
+**Исправление:** Параметризованный запрос и check_password_hash.  
+**Модельная оценка:** CVSS 8.2 (High), CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N.  
+   
+ Допущения модели описаны в [разделе 6.](../participant-06/report.md "../participant-06/report.md")  
+**Реальный пример:** [CVE-2023-25157. SQL-инъекция GeoServer; аналог класса, другой продукт и путь ввода.](https://geoserver.org/vulnerability/2023/02/20/ogc-filter-injection.html "https://geoserver.org/vulnerability/2023/02/20/ogc-filter-injection.html")  
+**PY-02 Stored XSS**  
+Исходник: [projects/python/vulnmart/templates/product.html, строка **15**.  
+   
+ Классификация: **CWE-79**, OWASP  **A03:2021**.](../../projects/python/vulnmart/templates/product.html "../../projects/python/vulnmart/templates/product.html")  
+Комментарий с script сохраняется и возвращается другому клиенту без экранирования.  
+**Доказательство:** [результат проверки. Подтверждены хранение и небезопасный HTML-вывод; первоначально проверялся HTML, позднее добавлено браузерное воспроизведение (см. дополнение).](../../reports/participant-02/evidence/vulnmart-stored-xss.json "../../reports/participant-02/evidence/vulnmart-stored-xss.json")  
+**Исправление:** Удалить фильтр safe; оставить автоэкранирование Jinja.  
+**Модельная оценка:** CVSS 6.1 (Medium), CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N.  
+   
+ Допущения модели описаны в [разделе 6.](../participant-06/report.md "../participant-06/report.md")  
+**Реальный пример:** [CVE-2020-11022. XSS в обработке HTML jQuery; аналог класса, не та же разновидность/реализация.](https://github.com/jquery/jquery/security/advisories/GHSA-gxr4-xjj5-5px2 "https://github.com/jquery/jquery/security/advisories/GHSA-gxr4-xjj5-5px2")  
+**PY-03 Missing Authorization / IDOR**  
+Исходник: [projects/python/vulnmart/app.py, строка **204**.  
+   
+ Классификация: **CWE-862**, OWASP  **A01:2021**.](../../projects/python/vulnmart/app.py "../../projects/python/vulnmart/app.py")  
+Пользователь sarah читает заказ admin по /order/1.  
+**Доказательство:** [результат проверки. Подтверждена утечка чужого заказа; изменение заказа не проверялось.](../../reports/participant-02/evidence/vulnmart-idor.json "../../reports/participant-02/evidence/vulnmart-idor.json")  
+**Исправление:** Ограничить SQL по id заказа и user_id из серверной сессии.  
+**Модельная оценка:** CVSS 6.5 (Medium), CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N.  
+   
+ Допущения модели описаны в [разделе 6.](../participant-06/report.md "../participant-06/report.md")  
+**Реальный пример:** [CVE-2023-22515. Аналог категории Broken Access Control; создание администратора в Confluence не тождественно IDOR.](https://confluence.atlassian.com/security/cve-2023-22515-broken-access-control-vulnerability-in-confluence-data-center-and-server-1295682276.html "https://confluence.atlassian.com/security/cve-2023-22515-broken-access-control-vulnerability-in-confluence-data-center-and-server-1295682276.html")  
+**Последовательность проверок**  
+Для SQLi отправляется POST /login с username=admin' -- и неправильным паролем.  
+   
+ После перенаправления клиент запрашивает /order/1: ответ содержит данные заказа  
+   
+ администратора. В исправленной версии тот же ввод не авторизует клиента.  
+Для IDOR выполнен обычный вход как sarah, затем запрос /order/1. Исходник возвращает  
+   
+ HTTP 200 и чужие данные; исправленный запрос ограничен владельцем и возвращает 404.  
+   
+ Собственный /order/2 остаётся доступным с HTTP 200.  
+Для XSS отправлен комментарий <script>window.RBPO_XSS=1</script>, после чего  
+   
+ страница товара загружена другим HTTP-клиентом. Исходный HTML содержит тег буквально;  
+   
+ исправленный — &lt;script&gt;. Первоначально выполнено подтверждение сохранения и небезопасного вывода;  
+   
+ в дополнении проверено исполнение сохранённого HTML в браузере. Кража cookie не проверялась.  
+**Вывод и ограничения**  
+Пять проверок исходного VulnMart прошли: отрицательный вход, собственный заказ,  
+   
+ чужой заказ, SQLi и сохранённая разметка. Исправленный вариант прошёл соответствующие  
+   
+ пять проверок, результаты находятся у участника 5. В качестве DAST использованы  
+   
+ воспроизводимые целевые HTTP-сценарии, допустимые методичкой вместо отчёта ZAP.  
+   
+ Это не полное динамическое сканирование приложения.  
+**Вопросы к защите**  
+- Чем IDOR отличается от SQLi? Для IDOR достаточно заменить id, синтаксис SQL не меняется.  
+- Почему контроль собственного заказа обязателен? Иначе блокировка всех запросов могла бы ошибочно считаться исправлением.  
+- Почему XSS названа хранимой? Отзыв сохраняется в БД и возвращается другому клиенту.  
+**Дополнение браузерного подтверждения XSS**  
+17 сентября 2026 года HTML из сохранённого HTTP-протокола был исполнен в новом  
+   
+ контексте Edge. Маркер window.RBPO_XSS сработал; внешние запросы блокировались.  
+   
+ [Браузерный протокол содержит версию браузера,  
+   
+ время, результат и SHA-256 исходного HTTP-протокола. Соответствующий исправленный  
+   
+ ответ проверен тем же способом: скрипт не исполняется.  
+   
+ Это дополняет прежнюю HTTP-проверку, но не является новым полным прогоном сервера.](evidence/vulnmart-stored-xss-browser-replay.json "evidence/vulnmart-stored-xss-browser-replay.json")  

@@ -1,0 +1,16 @@
+{
+  "test": "vulnmart-stored-xss-browser-replay",
+  "passed": true,
+  "timestamp_utc": "2026-09-17T15:36:30.849Z",
+  "browser": "153.0.4234.32",
+  "platform": "win32",
+  "method": "browser_replay_saved_http",
+  "source": "reports/participant-02/evidence/vulnmart-stored-xss.json",
+  "source_sha256": "e2a30099c67d592b4ee58b3a6de7264cdd3fd3bf89b43189c62756bc656cddd1",
+  "details": {
+    "marker": true,
+    "dialogs": [],
+    "scriptCount": 1,
+    "scope": "Execution of saved HTTP HTML in a fresh browser context with external requests blocked; live server and session behaviour not retested."
+  }
+}
