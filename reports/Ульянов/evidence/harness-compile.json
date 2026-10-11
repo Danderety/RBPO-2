@@ -1,0 +1,19 @@
+{
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-Wformat=2",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "-no-pie",
+    "/workspace/scratch/5b725af9bd14/rbpo-pr2/projects/cpp/harness.cpp",
+    "-o",
+    "/workspace/scratch/5b725af9bd14/rbpo-pr2/build/harness"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "In file included from /workspace/scratch/5b725af9bd14/rbpo-pr2/projects/cpp/harness.cpp:3:\n/workspace/scratch/5b725af9bd14/rbpo-pr2/projects/cpp/vulnerable.cpp: In function ‘void vulnerable_printf(char*)’:\n/workspace/scratch/5b725af9bd14/rbpo-pr2/projects/cpp/vulnerable.cpp:14:11: warning: format not a string literal and no format arguments [-Wformat-security]\n   14 |     printf(input); // CPP-02 CWE-134\n      |     ~~~~~~^~~~~~~\n"
+}

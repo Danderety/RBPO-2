@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+    <cppcheck version="2.17.1"/>
+    <errors>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="projects/cpp/vulnerable.cpp" line="2" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;cstring&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;cstring&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="projects/cpp/vulnerable.cpp" line="3" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;cstdio&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;cstdio&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="projects/cpp/vulnerable.cpp" line="4" column="0"/>
+        </error>
+        <error id="missingIncludeSystem" severity="information" msg="Include file: &lt;cstdlib&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results." verbose="Include file: &lt;cstdlib&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.">
+            <location file="projects/cpp/vulnerable.cpp" line="5" column="0"/>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;input&apos; can be declared as pointer to const" verbose="Parameter &apos;input&apos; can be declared as pointer to const" cwe="398" file0="projects/cpp/vulnerable.cpp">
+            <location file="projects/cpp/vulnerable.cpp" line="8" column="28" info="Parameter &apos;input&apos; can be declared as pointer to const"/>
+            <symbol>input</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;input&apos; can be declared as pointer to const" verbose="Parameter &apos;input&apos; can be declared as pointer to const" cwe="398" file0="projects/cpp/vulnerable.cpp">
+            <location file="projects/cpp/vulnerable.cpp" line="13" column="30" info="Parameter &apos;input&apos; can be declared as pointer to const"/>
+            <symbol>input</symbol>
+        </error>
+        <error id="constParameterPointer" severity="style" msg="Parameter &apos;input&apos; can be declared as pointer to const" verbose="Parameter &apos;input&apos; can be declared as pointer to const" cwe="398" file0="projects/cpp/vulnerable.cpp">
+            <location file="projects/cpp/vulnerable.cpp" line="16" column="30" info="Parameter &apos;input&apos; can be declared as pointer to const"/>
+            <symbol>input</symbol>
+        </error>
+        <error id="checkersReport" severity="information" msg="Active checkers: 179/856 (use --checkers-report=&lt;filename&gt; to see details)" verbose="Active checkers: 179/856 (use --checkers-report=&lt;filename&gt; to see details)"/>
+    </errors>
+</results>

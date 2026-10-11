@@ -1,0 +1,15 @@
+{
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-O0",
+    "C:\\Users\\Шмеркович Кирилл\\Documents\\Лабораторная РБПО\\lab2-corrected\\repository\\projects\\cpp\\null_pointer.cpp",
+    "-o",
+    "C:\\Users\\Шмеркович Кирилл\\Documents\\Лабораторная РБПО\\lab2-corrected\\repository\\build\\null_pointer.exe"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": ""
+}

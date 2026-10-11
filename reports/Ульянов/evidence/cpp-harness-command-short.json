@@ -1,0 +1,15 @@
+{
+  "test": "cpp-harness-command-short",
+  "passed": true,
+  "details": {
+    "command": [
+      "/workspace/scratch/5b725af9bd14/rbpo-pr2/build/harness",
+      "command",
+      "x;printf RBPO_CMD"
+    ],
+    "returncode": 0,
+    "stdout": "x\nRBPO_CMD",
+    "stderr": "",
+    "ASAN_OPTIONS": "detect_leaks=0"
+  }
+}
