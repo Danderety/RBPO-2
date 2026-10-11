@@ -30,33 +30,33 @@ g++ -Wall -Wextra -g -std=c++17 -o build/original projects/cpp/vulnerable.cpp
    
  Классификация: **CWE-120**, OWASP  **N/A**.](../../projects/cpp/vulnerable.cpp "../../projects/cpp/vulnerable.cpp")  
 strcpy копирует 64 символа в буфер на 10 байт; ASan выявил stack-buffer-overflow.  
-**Доказательство:** [результат проверки. Подтверждены выход за границу стека и аварийное завершение. RCE не демонстрировалось.](../../reports/participant-03/evidence/cpp-harness-copy-long.json "../../reports/participant-03/evidence/cpp-harness-copy-long.json")  
+**Доказательство:** [результат проверки. Подтверждены выход за границу стека и аварийное завершение. RCE не демонстрировалось.](../../reports/Ульянов/evidence/cpp-harness-copy-long.json "../../reports/Ульянов/evidence/cpp-harness-copy-long.json")  
 **Исправление:** std::string вместо фиксированного буфера.  
 **Модельная оценка:** CVSS 5.5 (Medium), CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H.  
    
- Допущения модели описаны в [разделе 6.](../participant-06/report.md "../participant-06/report.md")  
+ Допущения модели описаны в [разделе 6.](../Прядко/report.md "../Прядко/report.md")  
 **Реальный пример:** [CVE-2021-3156. Родственная ошибка безопасности памяти: в sudo переполнение кучи, в примере стек. Не точное совпадение CWE.](https://blog.qualys.com/vulnerabilities-threat-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit "https://blog.qualys.com/vulnerabilities-threat-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit")  
 **CPP-02 Format String**  
 Исходник: [projects/cpp/vulnerable.cpp, строка **14**.  
    
  Классификация: **CWE-134**, OWASP  **N/A**.](../../projects/cpp/vulnerable.cpp "../../projects/cpp/vulnerable.cpp")  
 Ввод %% интерпретируется как формат и печатает один %.  
-**Доказательство:** [результат проверки. Подтверждена интерпретация формата. Утечка памяти, запись через %n и RCE не выполнялись; C/I/A:H — потенциальное воздействие модели.](../../reports/participant-03/evidence/cpp-harness-format-short.json "../../reports/participant-03/evidence/cpp-harness-format-short.json")  
+**Доказательство:** [результат проверки. Подтверждена интерпретация формата. Утечка памяти, запись через %n и RCE не выполнялись; C/I/A:H — потенциальное воздействие модели.](../../reports/Ульянов/evidence/cpp-harness-format-short.json "../../reports/Ульянов/evidence/cpp-harness-format-short.json")  
 **Исправление:** printf("%s", input) с постоянной строкой формата.  
 **Модельная оценка:** CVSS 7.8 (High), CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H.  
    
- Допущения модели описаны в [разделе 6.](../participant-06/report.md "../participant-06/report.md")  
+ Допущения модели описаны в [разделе 6.](../Прядко/report.md "../Прядко/report.md")  
 **Реальный пример:** [CVE-2012-0809. Форматная строка sudo_debug; sudo имеет иную модель привилегий.](https://nvd.nist.gov/vuln/detail/CVE-2012-0809 "https://nvd.nist.gov/vuln/detail/CVE-2012-0809")  
 **CPP-03 OS Command Injection**  
 Исходник: [projects/cpp/vulnerable.cpp, строка **19**.  
    
  Классификация: **CWE-78**, OWASP  **N/A**.](../../projects/cpp/vulnerable.cpp "../../projects/cpp/vulnerable.cpp")  
 Ввод x;printf RBPO_CMD приводит к выполнению второй команды.  
-**Доказательство:** [результат проверки. Подтверждено выполнение безвредной команды; повышение привилегий не проверялось.](../../reports/participant-03/evidence/cpp-harness-command-short.json "../../reports/participant-03/evidence/cpp-harness-command-short.json")  
+**Доказательство:** [результат проверки. Подтверждено выполнение безвредной команды; повышение привилегий не проверялось.](../../reports/Ульянов/evidence/cpp-harness-command-short.json "../../reports/Ульянов/evidence/cpp-harness-command-short.json")  
 **Исправление:** Для вывода текста не вызывать shell; использовать std::cout.  
 **Модельная оценка:** CVSS 7.8 (High), CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H.  
    
- Допущения модели описаны в [разделе 6.](../participant-06/report.md "../participant-06/report.md")  
+ Допущения модели описаны в [разделе 6.](../Прядко/report.md "../Прядко/report.md")  
 **Реальный пример:** [CVE-2020-11981. Инъекция команд через брокер Celery в Airflow; другой канал ввода.](https://github.com/advisories/GHSA-976r-qfjj-c24w "https://github.com/advisories/GHSA-976r-qfjj-c24w")  
 **Результаты статического анализа**  
 Запущен Cppcheck 2.17.1 с --enable=all --inconclusive --std=c++17 --library=std.  
@@ -110,10 +110,10 @@ strcpy копирует 64 символа в буфер на 10 байт; ASan �
    
  ](../../projects/cpp/null_pointer_fixed.cpp "../../projects/cpp/null_pointer_fixed.cpp")[Результат подтверждает  
    
- корректное отклонение NULL; ](../participant-05/evidence/null_pointer_fixed-null.json "../participant-05/evidence/null_pointer_fixed-null.json")[контроль  
+ корректное отклонение NULL; ](../Шумков/evidence/null_pointer_fixed-null.json "../Шумков/evidence/null_pointer_fixed-null.json")[контроль  
    
  сохраняет обработку обычного указателя.  
    
- Аналог: ](../participant-05/evidence/null_pointer_fixed-valid.json "../participant-05/evidence/null_pointer_fixed-valid.json")[CVE-2023-3316, libtiff;  
+ Аналог: ](../Шумков/evidence/null_pointer_fixed-valid.json "../Шумков/evidence/null_pointer_fixed-valid.json")[CVE-2023-3316, libtiff;  
    
  совпадает класс NULL pointer, но отличается приложение и путь ввода.](https://nvd.nist.gov/vuln/detail/CVE-2023-3316 "https://nvd.nist.gov/vuln/detail/CVE-2023-3316")  

@@ -10,11 +10,12 @@ import subprocess
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
+from report_paths import report_dir
 
 R = Path(__file__).resolve().parents[1]
 
 def save(part, name, value):
-    path = R / f'reports/participant-{part:02d}/evidence/{name}.json'
+    path = report_dir(part) / 'evidence' / f'{name}.json'
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 

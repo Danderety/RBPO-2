@@ -25,33 +25,33 @@ npm ci --prefix projects/javascript
    
  Классификация: **CWE-89**, OWASP  **A03:2021**.](../../projects/javascript/vulnerable.js "../../projects/javascript/vulnerable.js")  
 Ввод ' OR 1=1 -- изменяет предикат и возвращает запись admin.  
-**Доказательство:** [результат проверки. Подтверждено изменение запроса и чтение записи; endpoint не является формой входа.](../../reports/participant-04/evidence/vulnerable.js-sqli.json "../../reports/participant-04/evidence/vulnerable.js-sqli.json")  
+**Доказательство:** [результат проверки. Подтверждено изменение запроса и чтение записи; endpoint не является формой входа.](../../reports/Чихладзе/evidence/vulnerable.js-sqli.json "../../reports/Чихладзе/evidence/vulnerable.js-sqli.json")  
 **Исправление:** Плейсхолдер ? и массив параметров SQLite.  
 **Модельная оценка:** CVSS 5.3 (Medium), CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N.  
    
- Допущения модели описаны в [разделе 6.](../participant-06/report.md "../participant-06/report.md")  
+ Допущения модели описаны в [разделе 6.](../Прядко/report.md "../Прядко/report.md")  
 **Реальный пример:** [CVE-2023-25157. SQL-инъекция GeoServer; аналог класса, другой продукт и путь ввода.](https://geoserver.org/vulnerability/2023/02/20/ogc-filter-injection.html "https://geoserver.org/vulnerability/2023/02/20/ogc-filter-injection.html")  
 **JS-02 Reflected XSS**  
 Исходник: [projects/javascript/vulnerable.js, строка **16**.  
    
  Классификация: **CWE-79**, OWASP  **A03:2021**.](../../projects/javascript/vulnerable.js "../../projects/javascript/vulnerable.js")  
 Параметр name попадает в HTML без кодирования.  
-**Доказательство:** [результат проверки. Подтверждено отражение тега script в HTML; первоначально проверялся HTML, позднее добавлено браузерное воспроизведение (см. дополнение).](../../reports/participant-04/evidence/vulnerable.js-xss.json "../../reports/participant-04/evidence/vulnerable.js-xss.json")  
+**Доказательство:** [результат проверки. Подтверждено отражение тега script в HTML; первоначально проверялся HTML, позднее добавлено браузерное воспроизведение (см. дополнение).](../../reports/Чихладзе/evidence/vulnerable.js-xss.json "../../reports/Чихладзе/evidence/vulnerable.js-xss.json")  
 **Исправление:** Контекстное экранирование HTML-текста.  
 **Модельная оценка:** CVSS 6.1 (Medium), CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N.  
    
- Допущения модели описаны в [разделе 6.](../participant-06/report.md "../participant-06/report.md")  
+ Допущения модели описаны в [разделе 6.](../Прядко/report.md "../Прядко/report.md")  
 **Реальный пример:** [CVE-2020-11022. XSS в обработке HTML jQuery; аналог класса, не та же разновидность/реализация.](https://github.com/jquery/jquery/security/advisories/GHSA-gxr4-xjj5-5px2 "https://github.com/jquery/jquery/security/advisories/GHSA-gxr4-xjj5-5px2")  
 **JS-03 OS Command Injection**  
 Исходник: [projects/javascript/vulnerable.js, строка **21**.  
    
  Классификация: **CWE-78**, OWASP  **A03:2021**.](../../projects/javascript/vulnerable.js "../../projects/javascript/vulnerable.js")  
 Параметр host содержит ; printf RBPO_CMD и запускает дополнительную команду.  
-**Доказательство:** [результат проверки. Подтвержден вывод маркера из shell; C/I/A:H — потенциальные права процесса.](../../reports/participant-04/evidence/vulnerable.js-command.json "../../reports/participant-04/evidence/vulnerable.js-command.json")  
+**Доказательство:** [результат проверки. Подтвержден вывод маркера из shell; C/I/A:H — потенциальные права процесса.](../../reports/Чихладзе/evidence/vulnerable.js-command.json "../../reports/Чихладзе/evidence/vulnerable.js-command.json")  
 **Исправление:** execFile без shell; проверка типа, IP и разрешённых адресов.  
 **Модельная оценка:** CVSS 9.8 (Critical), CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H.  
    
- Допущения модели описаны в [разделе 6.](../participant-06/report.md "../participant-06/report.md")  
+ Допущения модели описаны в [разделе 6.](../Прядко/report.md "../Прядко/report.md")  
 **Реальный пример:** [CVE-2020-11981. Инъекция команд через брокер Celery в Airflow; другой канал ввода.](https://github.com/advisories/GHSA-976r-qfjj-c24w "https://github.com/advisories/GHSA-976r-qfjj-c24w")  
 **Статический анализ**  
 ESLint 9.22.0 использован с eslint-plugin-security 3.0.1 и рекомендуемыми правилами.  

@@ -14,12 +14,12 @@ CVE используются как аналоги. Модельные CVSS не
 
 | Участник | Раздел | Отчёт |
 |---|---|---|
-| 1 | Исходный VulnMart, зависимости, общая инфраструктура, SAST | [Отчёт 1](reports/participant-01/report.md) |
-| 2 | HTTP-проверки VulnMart: SQLi, XSS, IDOR | [Отчёт 2](reports/participant-02/report.md) |
-| 3 | C++-пример, harness, динамический анализ и Cppcheck | [Отчёт 3](reports/participant-03/report.md) |
-| 4 | JavaScript-пример, ESLint и HTTP-проверки | [Отчёт 4](reports/participant-04/report.md) |
-| 5 | Исправления трёх проектов и интеграционная проверка | [Отчёт 5](reports/participant-05/report.md) |
-| 6 | Классификация, датасеты и экспертное заключение | [Отчёт 6](reports/participant-06/report.md) |
+| 1 | Исходный VulnMart, зависимости, общая инфраструктура, SAST | [Отчёт 1](reports/Шмеркович/report.md) |
+| 2 | HTTP-проверки VulnMart: SQLi, XSS, IDOR | [Отчёт 2](reports/Хрусталев/report.md) |
+| 3 | C++-пример, harness, динамический анализ и Cppcheck | [Отчёт 3](reports/Ульянов/report.md) |
+| 4 | JavaScript-пример, ESLint и HTTP-проверки | [Отчёт 4](reports/Чихладзе/report.md) |
+| 5 | Исправления трёх проектов и интеграционная проверка | [Отчёт 5](reports/Шумков/report.md) |
+| 6 | Классификация, датасеты и экспертное заключение | [Отчёт 6](reports/Прядко/report.md) |
 
 Отдельная [экспертная оценка](expert_assessment.md) подготовлена по шагу 5 задания.
 [Сверка с методичкой](ASSIGNMENT_COMPLIANCE.md) объясняет отличия и покрытие требований.
@@ -48,7 +48,7 @@ CVE используются как аналоги. Модельные CVSS не
 | projects/javascript | Исходный и исправленный JS, npm lock и ESLint config |
 | scripts | Установка, SAST, динамические проверки и сборка датасета |
 | datasets | vulnerabilities.csv, vulnerabilities.json, cwe_mapping.csv |
-| reports/participant-01 … 06 | Шесть отчётов и доказательства |
+| reports/Шмеркович … 06 | Шесть отчётов и доказательства |
 
 ## Воспроизведение на Arch Linux
 
@@ -113,7 +113,7 @@ C++-программы собираются при `--only cpp` в игнори�
 ## Доказательства и ограничения
 
 Фактическая среда подготовки — Ubuntu 24.04, Python 3.12, Node 24.19.0, GCC 13.3.0,
-Cppcheck 2.17.1. [Метаданные](reports/participant-01/evidence/environment.json).
+Cppcheck 2.17.1. [Метаданные](reports/Шмеркович/evidence/environment.json).
 Arch-скрипт подготовлен, но на Arch запуск не выполнялся. Скриншоты не имитировались.
 
 Исходные HTTP-протоколы XSS дополнены воспроизведением их HTML в изолированном
@@ -147,3 +147,20 @@ python scripts/validate_delivery.py
 устанавливает его и Chromium. В Windows можно задать RBPO_BROWSER_PATH на msedge.exe.
 RBPO_PLAYWRIGHT_MODULE позволяет указать другой установленный модуль Playwright.
 Браузер блокирует внешние запросы и проверяет только сохранённые учебные HTML-ответы.
+
+## Названия папок отчётов
+
+Единая настройка для Python и браузерного скрипта — `scripts/report_folders.json`:
+01 — Шмеркович, 02 — Хрусталев, 03 — Ульянов, 04 — Чихладзе,
+05 — Шумков, 06 — Прядко. Номера в тестах остаются постоянными;
+на диске используются `reports/<фамилия>/evidence/`.
+Вместе с обновлёнными скриптами обязательно копировать `report_paths.py`
+и `report_folders.json`.
+
+Запуск из корня: `bash scripts/run-all.sh`. Из папки scripts: `bash run-all.sh`.
+Не подключайте run-all.sh через точку: его `set -e` действует на вызывающую оболочку.
+Проверка согласованности готовых файлов: `python scripts/validate_delivery.py`.
+
+При обновлении названий проверены пути записи для всех шести участников,
+Python/JavaScript-синтаксис, ссылки и целостность датасетов. Приложения и браузер
+заново не запускались; сохранённые результаты не являются новым прогоном.

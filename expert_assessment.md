@@ -31,7 +31,7 @@ Python: параметры SQL, автоэкранирование Jinja, про
 
 CVSS рассчитан по приведённым в CSV/JSON векторам для учебной модели; это не баллы сканеров и не оценки сторонних CVE. Категории C++ из методички сохранены в owasp_assignment, а техническая применимость обозначена N/A. PY-04 и PY-05 подтверждены статически, CPP-04 — отдельными запусками. Исходные 30 динамических проверок сохранены отдельно от дополнительных протоколов.
 
-Подробности, допущения и источники: [отчёт участника 6](reports/participant-06/report.md). Соответствие каждому пункту задания: [сверка](ASSIGNMENT_COMPLIANCE.md).
+Подробности, допущения и источники: [отчёт участника 6](reports/Прядко/report.md). Соответствие каждому пункту задания: [сверка](ASSIGNMENT_COMPLIANCE.md).
 
 ## Доказательства и исправления
 
@@ -41,7 +41,7 @@ CVSS рассчитан по приведённым в CSV/JSON векторам
 
 **Исправление:** Параметризованный запрос и check_password_hash.
 
-**Подтверждение:** [confirmed_dynamic](reports/participant-02/evidence/vulnmart-sqli.json). SQLi подтверждена HTTP; изменение данных не проверялось, I:L учитывает действия под чужой учётной записью.
+**Подтверждение:** [confirmed_dynamic](reports/Хрусталев/evidence/vulnmart-sqli.json). SQLi подтверждена HTTP; изменение данных не проверялось, I:L учитывает действия под чужой учётной записью.
 
 **CVE-аналог:** [CVE-2023-25157](https://geoserver.org/vulnerability/2023/02/20/ogc-filter-injection.html). SQL-инъекция GeoServer; аналог класса, другой продукт и путь ввода.
 
@@ -51,7 +51,7 @@ CVSS рассчитан по приведённым в CSV/JSON векторам
 
 **Исправление:** Удалить фильтр safe; оставить автоэкранирование Jinja.
 
-**Подтверждение:** [confirmed_http_and_browser_replay](reports/participant-02/evidence/vulnmart-stored-xss.json). Сохранённый HTTP-ответ исполнен в изолированном браузере; маркер XSS сработал. Повторный полный запуск веб-приложения в браузере не выполнялся.
+**Подтверждение:** [confirmed_http_and_browser_replay](reports/Хрусталев/evidence/vulnmart-stored-xss.json). Сохранённый HTTP-ответ исполнен в изолированном браузере; маркер XSS сработал. Повторный полный запуск веб-приложения в браузере не выполнялся.
 
 **CVE-аналог:** [CVE-2020-11022](https://github.com/jquery/jquery/security/advisories/GHSA-gxr4-xjj5-5px2). XSS в обработке HTML jQuery; аналог класса, не та же разновидность/реализация.
 
@@ -61,7 +61,7 @@ CVSS рассчитан по приведённым в CSV/JSON векторам
 
 **Исправление:** Ограничить SQL по id заказа и user_id из серверной сессии.
 
-**Подтверждение:** [confirmed_dynamic](reports/participant-02/evidence/vulnmart-idor.json). Подтверждена утечка чужого заказа; изменение заказа не проверялось.
+**Подтверждение:** [confirmed_dynamic](reports/Хрусталев/evidence/vulnmart-idor.json). Подтверждена утечка чужого заказа; изменение заказа не проверялось.
 
 **CVE-аналог:** [CVE-2023-22515](https://confluence.atlassian.com/security/cve-2023-22515-broken-access-control-vulnerability-in-confluence-data-center-and-server-1295682276.html). Аналог категории Broken Access Control; создание администратора в Confluence не тождественно IDOR.
 
@@ -71,7 +71,7 @@ strcpy копирует 64 символа в буфер на 10 байт; ASan �
 
 **Исправление:** std::string вместо фиксированного буфера.
 
-**Подтверждение:** [confirmed_dynamic](reports/participant-03/evidence/cpp-harness-copy-long.json). Подтверждены выход за границу стека и аварийное завершение. RCE не демонстрировалось.
+**Подтверждение:** [confirmed_dynamic](reports/Ульянов/evidence/cpp-harness-copy-long.json). Подтверждены выход за границу стека и аварийное завершение. RCE не демонстрировалось.
 
 **CVE-аналог:** [CVE-2021-3156](https://blog.qualys.com/vulnerabilities-threat-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit). Родственная ошибка безопасности памяти: в sudo переполнение кучи, в примере стек. Не точное совпадение CWE.
 
@@ -81,7 +81,7 @@ strcpy копирует 64 символа в буфер на 10 байт; ASan �
 
 **Исправление:** printf("%s", input) с постоянной строкой формата.
 
-**Подтверждение:** [confirmed_dynamic](reports/participant-03/evidence/cpp-harness-format-short.json). Подтверждена интерпретация формата. Утечка памяти, запись через %n и RCE не выполнялись; C/I/A:H — потенциальное воздействие модели.
+**Подтверждение:** [confirmed_dynamic](reports/Ульянов/evidence/cpp-harness-format-short.json). Подтверждена интерпретация формата. Утечка памяти, запись через %n и RCE не выполнялись; C/I/A:H — потенциальное воздействие модели.
 
 **CVE-аналог:** [CVE-2012-0809](https://nvd.nist.gov/vuln/detail/CVE-2012-0809). Форматная строка sudo_debug; sudo имеет иную модель привилегий.
 
@@ -91,7 +91,7 @@ strcpy копирует 64 символа в буфер на 10 байт; ASan �
 
 **Исправление:** Для вывода текста не вызывать shell; использовать std::cout.
 
-**Подтверждение:** [confirmed_dynamic](reports/participant-03/evidence/cpp-harness-command-short.json). Подтверждено выполнение безвредной команды; повышение привилегий не проверялось.
+**Подтверждение:** [confirmed_dynamic](reports/Ульянов/evidence/cpp-harness-command-short.json). Подтверждено выполнение безвредной команды; повышение привилегий не проверялось.
 
 **CVE-аналог:** [CVE-2020-11981](https://github.com/advisories/GHSA-976r-qfjj-c24w). Инъекция команд через брокер Celery в Airflow; другой канал ввода.
 
@@ -101,7 +101,7 @@ strcpy копирует 64 символа в буфер на 10 байт; ASan �
 
 **Исправление:** Плейсхолдер ? и массив параметров SQLite.
 
-**Подтверждение:** [confirmed_dynamic](reports/participant-04/evidence/vulnerable.js-sqli.json). Подтверждено изменение запроса и чтение записи; endpoint не является формой входа.
+**Подтверждение:** [confirmed_dynamic](reports/Чихладзе/evidence/vulnerable.js-sqli.json). Подтверждено изменение запроса и чтение записи; endpoint не является формой входа.
 
 **CVE-аналог:** [CVE-2023-25157](https://geoserver.org/vulnerability/2023/02/20/ogc-filter-injection.html). SQL-инъекция GeoServer; аналог класса, другой продукт и путь ввода.
 
@@ -111,7 +111,7 @@ strcpy копирует 64 символа в буфер на 10 байт; ASan �
 
 **Исправление:** Контекстное экранирование HTML-текста.
 
-**Подтверждение:** [confirmed_http_and_browser_replay](reports/participant-04/evidence/vulnerable.js-xss.json). Сохранённый HTTP-ответ исполнен в изолированном браузере; маркер XSS сработал. Повторный полный запуск веб-приложения в браузере не выполнялся.
+**Подтверждение:** [confirmed_http_and_browser_replay](reports/Чихладзе/evidence/vulnerable.js-xss.json). Сохранённый HTTP-ответ исполнен в изолированном браузере; маркер XSS сработал. Повторный полный запуск веб-приложения в браузере не выполнялся.
 
 **CVE-аналог:** [CVE-2020-11022](https://github.com/jquery/jquery/security/advisories/GHSA-gxr4-xjj5-5px2). XSS в обработке HTML jQuery; аналог класса, не та же разновидность/реализация.
 
@@ -121,7 +121,7 @@ strcpy копирует 64 символа в буфер на 10 байт; ASan �
 
 **Исправление:** execFile без shell; проверка типа, IP и разрешённых адресов.
 
-**Подтверждение:** [confirmed_dynamic](reports/participant-04/evidence/vulnerable.js-command.json). Подтвержден вывод маркера из shell; C/I/A:H — потенциальные права процесса.
+**Подтверждение:** [confirmed_dynamic](reports/Чихладзе/evidence/vulnerable.js-command.json). Подтвержден вывод маркера из shell; C/I/A:H — потенциальные права процесса.
 
 **CVE-аналог:** [CVE-2020-11981](https://github.com/advisories/GHSA-976r-qfjj-c24w). Инъекция команд через брокер Celery в Airflow; другой канал ввода.
 
@@ -131,7 +131,7 @@ strcpy копирует 64 символа в буфер на 10 байт; ASan �
 
 **Исправление:** Проверить data на nullptr до разыменования.
 
-**Подтверждение:** [confirmed_dynamic](reports/participant-03/evidence/null_pointer-null.json). Подтверждено аварийное завершение отдельного процесса; удалённая достижимость не заявляется.
+**Подтверждение:** [confirmed_dynamic](reports/Ульянов/evidence/null_pointer-null.json). Подтверждено аварийное завершение отдельного процесса; удалённая достижимость не заявляется.
 
 **CVE-аналог:** [CVE-2023-3316](https://nvd.nist.gov/vuln/detail/CVE-2023-3316). NULL pointer в libtiff TIFFClose; совпадает класс ошибки, но не продукт и путь ввода.
 
@@ -141,7 +141,7 @@ strcpy копирует 64 символа в буфер на 10 байт; ASan �
 
 **Исправление:** Случайный секрет вне исходников; в учебном fixed ключ создаётся при запуске.
 
-**Подтверждение:** [confirmed_static](reports/participant-01/evidence/static-session-key.json). Подтверждено AST-проверкой и исходным B105; подделка сессии не выполнялась. C/I:H — допущение модели.
+**Подтверждение:** [confirmed_static](reports/Шмеркович/evidence/static-session-key.json). Подтверждено AST-проверкой и исходным B105; подделка сессии не выполнялась. C/I:H — допущение модели.
 
 **CVE-аналог:** [CVE-2022-29960](https://cwe.mitre.org/data/definitions/321.html). Пример MITRE: постоянные криптографические ключи в инженерной станции; иной продукт и назначение ключа.
 
@@ -151,7 +151,7 @@ strcpy копирует 64 символа в буфер на 10 байт; ASan �
 
 **Исправление:** generate_password_hash при записи и check_password_hash при входе.
 
-**Подтверждение:** [confirmed_static](reports/participant-01/evidence/static-plaintext-passwords.json). Подтверждён поток данных в исходнике; CVSS предполагает локальное чтение БД, а не самостоятельный сетевой обход.
+**Подтверждение:** [confirmed_static](reports/Шмеркович/evidence/static-plaintext-passwords.json). Подтверждён поток данных в исходнике; CVSS предполагает локальное чтение БД, а не самостоятельный сетевой обход.
 
 **CVE-аналог:** [CVE-2022-30275](https://cwe.mitre.org/data/definitions/256.html). Пример MITRE: открытое хранение пароля в драйвере RTU; другой продукт, тот же класс хранения.
 

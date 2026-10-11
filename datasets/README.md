@@ -24,7 +24,7 @@ confirmed_http_and_browser_replay — HTTP-протокол и исполнен�
 
 Сборка: `python scripts/build_dataset.py` из корня репозитория. Требуются уже готовые
 протоколы динамических проверок, которые входят в комплект. Скрипт не запускает атаки
-и не скачивает CVE. Подробные допущения CVSS находятся в `reports/participant-06/report.md`;
+и не скачивает CVE. Подробные допущения CVSS находятся в `reports/Прядко/report.md`;
 самостоятельная экспертная оценка — в `expert_assessment.md`.
 
 В cwe_mapping.csv поле rank_2025 содержит место в архиве CWE Top 25 2025;

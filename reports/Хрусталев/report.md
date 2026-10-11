@@ -20,33 +20,33 @@
    
  Классификация: **CWE-89**, OWASP  **A03:2021**.](../../projects/python/vulnmart/app.py "../../projects/python/vulnmart/app.py")  
 Имя admin' -- исключает проверку пароля из SQL; получен доступ к заказу администратора.  
-**Доказательство:** [результат проверки. SQLi подтверждена HTTP; изменение данных не проверялось, I:L учитывает действия под чужой учётной записью.](../../reports/participant-02/evidence/vulnmart-sqli.json "../../reports/participant-02/evidence/vulnmart-sqli.json")  
+**Доказательство:** [результат проверки. SQLi подтверждена HTTP; изменение данных не проверялось, I:L учитывает действия под чужой учётной записью.](../../reports/Хрусталев/evidence/vulnmart-sqli.json "../../reports/Хрусталев/evidence/vulnmart-sqli.json")  
 **Исправление:** Параметризованный запрос и check_password_hash.  
 **Модельная оценка:** CVSS 8.2 (High), CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:L/A:N.  
    
- Допущения модели описаны в [разделе 6.](../participant-06/report.md "../participant-06/report.md")  
+ Допущения модели описаны в [разделе 6.](../Прядко/report.md "../Прядко/report.md")  
 **Реальный пример:** [CVE-2023-25157. SQL-инъекция GeoServer; аналог класса, другой продукт и путь ввода.](https://geoserver.org/vulnerability/2023/02/20/ogc-filter-injection.html "https://geoserver.org/vulnerability/2023/02/20/ogc-filter-injection.html")  
 **PY-02 Stored XSS**  
 Исходник: [projects/python/vulnmart/templates/product.html, строка **15**.  
    
  Классификация: **CWE-79**, OWASP  **A03:2021**.](../../projects/python/vulnmart/templates/product.html "../../projects/python/vulnmart/templates/product.html")  
 Комментарий с script сохраняется и возвращается другому клиенту без экранирования.  
-**Доказательство:** [результат проверки. Подтверждены хранение и небезопасный HTML-вывод; первоначально проверялся HTML, позднее добавлено браузерное воспроизведение (см. дополнение).](../../reports/participant-02/evidence/vulnmart-stored-xss.json "../../reports/participant-02/evidence/vulnmart-stored-xss.json")  
+**Доказательство:** [результат проверки. Подтверждены хранение и небезопасный HTML-вывод; первоначально проверялся HTML, позднее добавлено браузерное воспроизведение (см. дополнение).](../../reports/Хрусталев/evidence/vulnmart-stored-xss.json "../../reports/Хрусталев/evidence/vulnmart-stored-xss.json")  
 **Исправление:** Удалить фильтр safe; оставить автоэкранирование Jinja.  
 **Модельная оценка:** CVSS 6.1 (Medium), CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N.  
    
- Допущения модели описаны в [разделе 6.](../participant-06/report.md "../participant-06/report.md")  
+ Допущения модели описаны в [разделе 6.](../Прядко/report.md "../Прядко/report.md")  
 **Реальный пример:** [CVE-2020-11022. XSS в обработке HTML jQuery; аналог класса, не та же разновидность/реализация.](https://github.com/jquery/jquery/security/advisories/GHSA-gxr4-xjj5-5px2 "https://github.com/jquery/jquery/security/advisories/GHSA-gxr4-xjj5-5px2")  
 **PY-03 Missing Authorization / IDOR**  
 Исходник: [projects/python/vulnmart/app.py, строка **204**.  
    
  Классификация: **CWE-862**, OWASP  **A01:2021**.](../../projects/python/vulnmart/app.py "../../projects/python/vulnmart/app.py")  
 Пользователь sarah читает заказ admin по /order/1.  
-**Доказательство:** [результат проверки. Подтверждена утечка чужого заказа; изменение заказа не проверялось.](../../reports/participant-02/evidence/vulnmart-idor.json "../../reports/participant-02/evidence/vulnmart-idor.json")  
+**Доказательство:** [результат проверки. Подтверждена утечка чужого заказа; изменение заказа не проверялось.](../../reports/Хрусталев/evidence/vulnmart-idor.json "../../reports/Хрусталев/evidence/vulnmart-idor.json")  
 **Исправление:** Ограничить SQL по id заказа и user_id из серверной сессии.  
 **Модельная оценка:** CVSS 6.5 (Medium), CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:N/A:N.  
    
- Допущения модели описаны в [разделе 6.](../participant-06/report.md "../participant-06/report.md")  
+ Допущения модели описаны в [разделе 6.](../Прядко/report.md "../Прядко/report.md")  
 **Реальный пример:** [CVE-2023-22515. Аналог категории Broken Access Control; создание администратора в Confluence не тождественно IDOR.](https://confluence.atlassian.com/security/cve-2023-22515-broken-access-control-vulnerability-in-confluence-data-center-and-server-1295682276.html "https://confluence.atlassian.com/security/cve-2023-22515-broken-access-control-vulnerability-in-confluence-data-center-and-server-1295682276.html")  
 **Последовательность проверок**  
 Для SQLi отправляется POST /login с username=admin' -- и неправильным паролем.  

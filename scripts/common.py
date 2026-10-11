@@ -5,9 +5,10 @@ from pathlib import Path
 import shutil, subprocess, sys, tempfile, threading, time, urllib.request, urllib.parse, urllib.error
 from datetime import datetime, timezone
 R=Path(__file__).resolve().parents[1]
+from report_paths import report_dir
 records=[]
 def save(part,name,value):
- p=R/f'reports/participant-{part:02d}/evidence'/name;p.parent.mkdir(parents=True,exist_ok=True)
+ p=report_dir(part)/'evidence'/name;p.parent.mkdir(parents=True,exist_ok=True)
  p.write_text(value if isinstance(value,str) else json.dumps(value,ensure_ascii=False,indent=2)+'\n')
 
 def record(part,name,ok,detail):

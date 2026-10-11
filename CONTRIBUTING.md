@@ -17,7 +17,7 @@
 
 ```bash
 git init -b main
-git add README.md CONTRIBUTING.md .gitignore projects/python/vulnmart projects/python/UPSTREAM.md projects/python/requirements-lock.txt scripts/common.py scripts/scan.py scripts/setup-arch.sh reports/participant-01
+git add README.md CONTRIBUTING.md .gitignore projects/python/vulnmart projects/python/UPSTREAM.md projects/python/requirements-lock.txt scripts/common.py scripts/scan.py scripts/setup-arch.sh reports/Шмеркович
 git diff --cached --stat
 git commit -m "Добавить VulnMart, инфраструктуру и результаты SAST"
 git remote add origin https://github.com/OWNER/rbpo-pr2.git
@@ -43,20 +43,20 @@ git push -u origin main
 ```bash
 git clone https://github.com/OWNER/rbpo-pr2.git
 cd rbpo-pr2
-git switch -c participant-02
-# Сейчас скопируйте содержимое participant-02.zip в этот каталог.
-git add scripts/check_python.py scripts/check_xss_browser.cjs reports/participant-02
+git switch -c Хрусталев
+# Сейчас скопируйте содержимое Хрусталев.zip в этот каталог.
+git add scripts/check_python.py scripts/check_xss_browser.cjs reports/Хрусталев
 git diff --cached --stat
 git commit -m "Добавить HTTP-проверки и отчёт по VulnMart"
-git push -u origin participant-02
+git push -u origin Хрусталев
 ```
 
 | Пакет | Пути для git add | Сообщение коммита |
 |---|---|---|
-| 3 | projects/cpp/vulnerable.cpp projects/cpp/harness.cpp projects/cpp/null_pointer.cpp scripts/check_cpp.py scripts/check_additions.py reports/participant-03 | Добавить C++-пример и доказательства дефектов памяти и команд |
-| 4 | projects/javascript/vulnerable.js projects/javascript/package.json projects/javascript/package-lock.json projects/javascript/eslint.config.cjs scripts/check_js.py reports/participant-04 | Добавить JavaScript-пример, ESLint и HTTP-проверки |
-| 5 | projects/python/fixed projects/cpp/fixed.cpp projects/cpp/null_pointer_fixed.cpp projects/javascript/fixed.js scripts/verify.py scripts/run-all.sh reports/participant-05 | Добавить исправления и результаты повторных проверок |
-| 6 | datasets scripts/build_dataset.py scripts/validate_delivery.py expert_assessment.md ASSIGNMENT_COMPLIANCE.md reports/participant-06 | Добавить датасеты и экспертную оценку |
+| 3 | projects/cpp/vulnerable.cpp projects/cpp/harness.cpp projects/cpp/null_pointer.cpp scripts/check_cpp.py scripts/check_additions.py reports/Ульянов | Добавить C++-пример и доказательства дефектов памяти и команд |
+| 4 | projects/javascript/vulnerable.js projects/javascript/package.json projects/javascript/package-lock.json projects/javascript/eslint.config.cjs scripts/check_js.py reports/Чихладзе | Добавить JavaScript-пример, ESLint и HTTP-проверки |
+| 5 | projects/python/fixed projects/cpp/fixed.cpp projects/cpp/null_pointer_fixed.cpp projects/javascript/fixed.js scripts/verify.py scripts/run-all.sh reports/Шумков | Добавить исправления и результаты повторных проверок |
+| 6 | datasets scripts/build_dataset.py scripts/validate_delivery.py expert_assessment.md ASSIGNMENT_COMPLIANCE.md reports/Прядко | Добавить датасеты и экспертную оценку |
 
 Полная работоспособность ожидается после всех шести пакетов: отдельные пакеты
 ссылаются на общие файлы, которые появятся позже. Ранние ссылки в README временно

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Build a traceable dataset; no scanner findings or run results are invented."""
 from pathlib import Path
+from report_paths import report_dir, report_relative
 import csv, hashlib, json, math
 R=Path(__file__).resolve().parents[1]
 def cvss(vector):
@@ -55,7 +56,7 @@ def main():
  for vid,lang,file,anchor,cwe,name,owasp,vector,desc,fix,evidence,scope in specs:
   lines=(R/file).read_text(encoding='utf-8').splitlines();matches=[i for i,l in enumerate(lines,1) if anchor in l]
   if len(matches)!=1:raise ValueError((file,anchor,matches))
-  part,test=evidence.split('/');evidence=f'reports/participant-{part}/evidence/{test}.json'
+  part,test=evidence.split('/');evidence=report_relative(part, 'evidence', f'{test}.json').as_posix()
   run=json.loads((R/evidence).read_text(encoding='utf-8'));assert run['passed'],vid
   score=cvss('CVSS:3.1/'+vector);example,url,relation=CVE[cwe]
   rows.append(dict(vuln_id=vid,language=lang,file=file,line=matches[0],source_sha256=hashlib.sha256((R/file).read_bytes()).hexdigest(),severity='Critical' if score>=9 else 'High' if score>=7 else 'Medium' if score>=4 else 'Low',cwe_id=cwe,cwe_name=name,owasp=owasp,owasp_version='2021',cve_example=example,cve_source=url,cve_relation=relation,cvss=score,cvss_version='3.1',cvss_vector='CVSS:3.1/'+vector,cvss_type='illustrative_model_not_measured_local_risk',description=desc,recommendation=fix,evidence=evidence,status='confirmed_http_output' if cwe=='CWE-79' else 'confirmed_dynamic',evidence_scope=scope))
@@ -91,7 +92,7 @@ def main():
   csvrows=list(csv.DictReader(f))
  assert len(rows)==len(csvrows)
  assert all(str(row[k])==csvrow[k] for row,csvrow in zip(rows,csvrows) for k in row)
- (R/'reports/participant-06/evidence/dataset-validation.json').write_text(json.dumps(validation,indent=2)+'\n')
+ (report_dir(6)/'evidence/dataset-validation.json').write_text(json.dumps(validation,indent=2)+'\n')
  # The requested standalone expert assessment is generated from the same rows.
  lines=['# Экспертная оценка безопасности','',
   'Практическая работа 2. Анализ Python, C++ и JavaScript. Датасет содержит '+str(len(rows))+' находок и '+str(len(mapping))+' классов CWE.', '',
@@ -105,7 +106,7 @@ def main():
   'Python: параметры SQL, автоэкранирование Jinja, проверка владельца, случайный ключ и хеширование паролей. C++: std::string, постоянный формат printf, отказ от system и проверка указателей. JavaScript: параметры SQLite, кодирование HTML и execFile с проверкой адреса.', '',
   '## Основания оценок и ограничения','',
   'CVSS рассчитан по приведённым в CSV/JSON векторам для учебной модели; это не баллы сканеров и не оценки сторонних CVE. Категории C++ из методички сохранены в owasp_assignment, а техническая применимость обозначена N/A. PY-04 и PY-05 подтверждены статически, CPP-04 — отдельными запусками. Исходные 30 динамических проверок сохранены отдельно от дополнительных протоколов.', '',
-  'Подробности, допущения и источники: [отчёт участника 6](reports/participant-06/report.md). Соответствие каждому пункту задания: [сверка](ASSIGNMENT_COMPLIANCE.md).', '',
+  f'Подробности, допущения и источники: [отчёт участника 6]({report_relative(6, "report.md").as_posix()}). Соответствие каждому пункту задания: [сверка](ASSIGNMENT_COMPLIANCE.md).', '',
   '## Доказательства и исправления',''])
  for row in rows:lines.extend([f"### {row['vuln_id']} — {row['cwe_name']}", '', row['description'], '', f"**Исправление:** {row['recommendation']}", '', f"**Подтверждение:** [{row['status']}]({row['evidence']}). {row['evidence_scope']}", '', f"**CVE-аналог:** [{row['cve_example']}]({row['cve_source']}). {row['cve_relation']}", ''])
  (R/'expert_assessment.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')

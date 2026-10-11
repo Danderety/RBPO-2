@@ -5,7 +5,7 @@
   "browser": "153.0.4234.32",
   "platform": "win32",
   "method": "browser_replay_saved_http",
-  "source": "reports/participant-05/evidence/fixed.js-xss.json",
+  "source": "reports/Шумков/evidence/fixed.js-xss.json",
   "source_sha256": "5d944199c7634b4708c354535fdce25d3e7bb57990c324c5711fc7246428b5e7",
   "details": {
     "marker": false,

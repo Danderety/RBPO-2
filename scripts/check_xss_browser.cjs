@@ -4,6 +4,20 @@ const path = require('path');
 const crypto = require('crypto');
 const { chromium } = require(process.env.RBPO_PLAYWRIGHT_MODULE || path.resolve(__dirname, '../.browser-tools/node_modules/playwright'));
 const root = path.resolve(__dirname, '..');
+const reportFolders = require('./report_folders.json');
+function reportRelative(participant, filename) {
+  const key = String(participant).padStart(2, '0');
+  const folder = reportFolders[key];
+  if (typeof folder !== 'string' || !folder || folder === '.' || folder === '..' || /[\\/]/.test(folder)) {
+    throw new Error(`Invalid or missing report folder for participant ${key}`);
+  }
+  return path.posix.join('reports', folder, 'evidence', filename);
+}
+function writeEvidence(participant, filename, result) {
+  const target = path.join(root, reportRelative(participant, filename));
+  fs.mkdirSync(path.dirname(target), {recursive: true});
+  fs.writeFileSync(target, JSON.stringify(result, null, 2) + '\n');
+}
 
 (async () => {
   const browser = await chromium.launch({headless: true,
@@ -13,7 +27,7 @@ const root = path.resolve(__dirname, '..');
     for (const [participant, filename, vulnerable] of [
       ['02', 'vulnmart-stored-xss', true], ['04', 'vulnerable.js-xss', true],
       ['05', 'fixed-stored-xss', false], ['05', 'fixed.js-xss', false]]) {
-      const source = `reports/participant-${participant}/evidence/${filename}.json`;
+      const source = reportRelative(participant, `${filename}.json`);
       const bytes = fs.readFileSync(path.join(root, source));
       const response = JSON.parse(bytes).details.response;
       const context = await browser.newContext();
@@ -32,12 +46,12 @@ const root = path.resolve(__dirname, '..');
         details: {marker, dialogs, scriptCount,
           scope: 'Execution of saved HTTP HTML in a fresh browser context with external requests blocked; live server and session behaviour not retested.'}};
       tests.push(result);
-      fs.writeFileSync(path.join(root, `reports/participant-${participant}/evidence/${result.test}.json`), JSON.stringify(result, null, 2) + '\n');
+      writeEvidence(participant, `${result.test}.json`, result);
       await context.close();
       console.log(`${passed ? 'PASS' : 'FAIL'} ${result.test}`);
     }
-    fs.writeFileSync(path.join(root, 'reports/participant-05/evidence/verification-browser-replay.json'),
-      JSON.stringify({tests, passed: tests.filter(t => t.passed).length, total: tests.length}, null, 2) + '\n');
+    writeEvidence('05', 'verification-browser-replay.json',
+      {tests, passed: tests.filter(t => t.passed).length, total: tests.length});
     if (tests.some(t => !t.passed)) process.exitCode = 1;
   } finally { await browser.close(); }
 })().catch(error => {console.error(error); process.exitCode = 1;});

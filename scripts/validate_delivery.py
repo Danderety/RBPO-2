@@ -8,6 +8,7 @@ import re
 from pathlib import Path
 from urllib.parse import unquote
 from build_dataset import cvss
+from report_paths import report_dir
 
 R=Path(__file__).resolve().parents[1]
 
@@ -41,11 +42,12 @@ def main():
               R/'datasets/README.md',*(R/'reports').glob('*/report.md')]
     for document in markdown:
         for target in re.findall(r'\]\(([^)]+)\)',document.read_text(encoding='utf-8')):
+            target = re.sub(r'''\s+(?:"[^"]*"|'[^']*')\s*$''', '', target).strip('<>')
             if '://' in target or target.startswith('#'):continue
             assert (document.parent/unquote(target.split('#')[0])).exists(),(document,target)
     series={}
     for name,expected in [('all',30),('additions',6),('browser-replay',4)]:
-        summary=json.loads((R/f'reports/participant-05/evidence/verification-{name}.json').read_text(encoding='utf-8'))
+        summary=json.loads((report_dir(5)/'evidence'/f'verification-{name}.json').read_text(encoding='utf-8'))
         assert summary['passed']==summary['total']==expected
         assert all(test['passed'] for test in summary['tests'])
         series[name]=expected

@@ -5,7 +5,7 @@
   "browser": "153.0.4234.32",
   "platform": "win32",
   "method": "browser_replay_saved_http",
-  "source": "reports/participant-04/evidence/vulnerable.js-xss.json",
+  "source": "reports/Чихладзе/evidence/vulnerable.js-xss.json",
   "source_sha256": "dff68b395ae21322f5500c62dca91af19f91e2b0ff7c46483b19b15dc50ca3a5",
   "details": {
     "marker": true,
