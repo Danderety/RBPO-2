@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/workspace/scratch/5b725af9bd14/cppcheck-src/cppcheck",
+    "--enable=all",
+    "--inconclusive",
+    "--std=c++17",
+    "--library=std",
+    "--xml",
+    "--xml-version=2",
+    "projects/cpp/fixed.cpp"
+  ],
+  "returncode": 0,
+  "stdout": "Checking projects/cpp/fixed.cpp ...\n",
+  "stderr": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<results version=\"2\">\n    <cppcheck version=\"2.17.1\"/>\n    <errors>\n        <error id=\"missingIncludeSystem\" severity=\"information\" msg=\"Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.\" verbose=\"Include file: &lt;iostream&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.\">\n            <location file=\"projects/cpp/fixed.cpp\" line=\"1\" column=\"0\"/>\n        </error>\n        <error id=\"missingIncludeSystem\" severity=\"information\" msg=\"Include file: &lt;cstdio&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.\" verbose=\"Include file: &lt;cstdio&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.\">\n            <location file=\"projects/cpp/fixed.cpp\" line=\"2\" column=\"0\"/>\n        </error>\n        <error id=\"missingIncludeSystem\" severity=\"information\" msg=\"Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.\" verbose=\"Include file: &lt;string&gt; not found. Please note: Cppcheck does not need standard library headers to get proper results.\">\n            <location file=\"projects/cpp/fixed.cpp\" line=\"3\" column=\"0\"/>\n        </error>\n        <error id=\"checkersReport\" severity=\"information\" msg=\"Active checkers: 179/856 (use --checkers-report=&lt;filename&gt; to see details)\" verbose=\"Active checkers: 179/856 (use --checkers-report=&lt;filename&gt; to see details)\"/>\n    </errors>\n</results>\n"
+}

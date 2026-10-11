@@ -1,0 +1,16 @@
+{
+  "test": "fixed-stored-xss-browser-replay",
+  "passed": true,
+  "timestamp_utc": "2026-09-17T15:36:31.211Z",
+  "browser": "153.0.4234.32",
+  "platform": "win32",
+  "method": "browser_replay_saved_http",
+  "source": "reports/participant-05/evidence/fixed-stored-xss.json",
+  "source_sha256": "904c5fcd2211468cc71fc7107f73bfbc80130ae061c32dfb346ae54b7918c63c",
+  "details": {
+    "marker": false,
+    "dialogs": [],
+    "scriptCount": 0,
+    "scope": "Execution of saved HTTP HTML in a fresh browser context with external requests blocked; live server and session behaviour not retested."
+  }
+}

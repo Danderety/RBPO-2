@@ -1,0 +1,359 @@
+{
+  "timestamp_utc": "2026-09-15T15:37:18.178840+00:00",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "scope": "all",
+  "tests": [
+    {
+      "test": "vulnmart-login-negative",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:43023/login",
+        "status": 200,
+        "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Login - VulnMart</title>\n  <style>\n    * { box-sizing: border-box; }\n    body {\n      margin: 0;\n      font-family: -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif;\n      background: #f6f6f8;\n      color: #1a1a2e;\n    }\n    nav {\n      background: #1a1a2e;\n      padding: 16px 32px;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n    }\n    nav .brand {\n      color: #fff;\n      font-weight: 700;\n      font-size: 1.3rem;\n      text-decoration: none;\n      letter-spacing: -0.5px;\n    }\n    nav .brand span { color: #e94560; }\n    nav .links a {\n      color: #ccc;\n      text-decoration: none;\n      margin-left: 20px;\n      font-size: 0.95rem;\n    }\n    nav .links a:hover { color: #fff; }\n    .container {\n      max-width: 900px;\n      margin: 40px auto;\n      padding: 0 20px;\n    }\n    .card {\n      background: #fff;\n      border-radius: 10px;\n      padding: 24px;\n      margin-bottom: 20px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.06);\n    }\n    .product-grid {\n      display: grid;\n      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));\n      gap: 18px;\n    }\n    .product-card h3 { margin: 0 0 8px 0; }\n    .price { color: #e94560; font-weight: 700; font-size: 1.1rem; }\n    a.btn, button.btn {\n      display: inline-block;\n      background: #e94560;\n      color: #fff;\n      border: none;\n      padding: 10px 18px;\n      border-radius: 6px;\n      text-decoration: none;\n      font-size: 0.95rem;\n      cursor: pointer;\n      margin-top: 10px;\n    }\n    a.btn.secondary { background: #eee; color: #1a1a2e; }\n    input, textarea {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ddd;\n      border-radius: 6px;\n      margin-bottom: 12px;\n      font-size: 1rem;\n      font-family: inherit;\n    }\n    .error { color: #c0392b; background: #fdecea; padding: 10px; border-radius: 6px; margin-bottom: 12px; }\n    .review { border-top: 1px solid #eee; padding: 10px 0; }\n    .review b { color: #1a1a2e; }\n    table { width: 100%; border-collapse: collapse; }\n    td, th { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }\n    .badge { background: #fdecea; color: #c0392b; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }\n  </style>\n</head>\n<body>\n  <nav>\n    <a class=\"brand\" href=\"/\">Vuln<span>Mart</span></a>\n    <div class=\"links\">\n      <a href=\"/\">Shop</a>\n      \n        <a href=\"/login\">Login</a>\n      \n    </div>\n  </nav>\n  <div class=\"container\">\n    \n  <div class=\"card\" style=\"max-width:380px; margin:0 auto;\">\n    <h2>Login</h2>\n    <div class=\"error\">Invalid credentials.</div>\n    <form method=\"POST\">\n      <input type=\"text\" name=\"username\" placeholder=\"Username\" autocomplete=\"off\">\n      <input type=\"password\" name=\"password\" placeholder=\"Password\">\n      <button class=\"btn\" type=\"submit\" style=\"width:100%;\">Login</button>\n    </form>\n  </div>\n\n  </div>\n</body>\n</html>"
+      }
+    },
+    {
+      "test": "vulnmart-own-order",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:43023/order/2",
+        "status": 200,
+        "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Order #2 - VulnMart</title>\n  <style>\n    * { box-sizing: border-box; }\n    body {\n      margin: 0;\n      font-family: -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif;\n      background: #f6f6f8;\n      color: #1a1a2e;\n    }\n    nav {\n      background: #1a1a2e;\n      padding: 16px 32px;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n    }\n    nav .brand {\n      color: #fff;\n      font-weight: 700;\n      font-size: 1.3rem;\n      text-decoration: none;\n      letter-spacing: -0.5px;\n    }\n    nav .brand span { color: #e94560; }\n    nav .links a {\n      color: #ccc;\n      text-decoration: none;\n      margin-left: 20px;\n      font-size: 0.95rem;\n    }\n    nav .links a:hover { color: #fff; }\n    .container {\n      max-width: 900px;\n      margin: 40px auto;\n      padding: 0 20px;\n    }\n    .card {\n      background: #fff;\n      border-radius: 10px;\n      padding: 24px;\n      margin-bottom: 20px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.06);\n    }\n    .product-grid {\n      display: grid;\n      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));\n      gap: 18px;\n    }\n    .product-card h3 { margin: 0 0 8px 0; }\n    .price { color: #e94560; font-weight: 700; font-size: 1.1rem; }\n    a.btn, button.btn {\n      display: inline-block;\n      background: #e94560;\n      color: #fff;\n      border: none;\n      padding: 10px 18px;\n      border-radius: 6px;\n      text-decoration: none;\n      font-size: 0.95rem;\n      cursor: pointer;\n      margin-top: 10px;\n    }\n    a.btn.secondary { background: #eee; color: #1a1a2e; }\n    input, textarea {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ddd;\n      border-radius: 6px;\n      margin-bottom: 12px;\n      font-size: 1rem;\n      font-family: inherit;\n    }\n    .error { color: #c0392b; background: #fdecea; padding: 10px; border-radius: 6px; margin-bottom: 12px; }\n    .review { border-top: 1px solid #eee; padding: 10px 0; }\n    .review b { color: #1a1a2e; }\n    table { width: 100%; border-collapse: collapse; }\n    td, th { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }\n    .badge { background: #fdecea; color: #c0392b; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }\n  </style>\n</head>\n<body>\n  <nav>\n    <a class=\"brand\" href=\"/\">Vuln<span>Mart</span></a>\n    <div class=\"links\">\n      <a href=\"/\">Shop</a>\n      \n        <a href=\"/orders\">My Orders</a>\n        <a href=\"/logout\">Logout (sarah)</a>\n      \n    </div>\n  </nav>\n  <div class=\"container\">\n    \n  <h2>Order #2</h2>\n  \n    <div class=\"card\">\n      <p><b>Product:</b> Wireless Mouse</p>\n      <p><b>Quantity:</b> 2</p>\n      <p><b>Shipping Address:</b> Sarah&#39;s House, 12 Palm Street, Pune</p>\n      <p><b>Card ending in:</b> **** **** **** 1881</p>\n      <span class=\"badge\">Order data belongs to user_id, ownership not verified</span>\n    </div>\n  \n\n  </div>\n</body>\n</html>"
+      }
+    },
+    {
+      "test": "vulnmart-idor",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:43023/order/1",
+        "status": 200,
+        "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Order #1 - VulnMart</title>\n  <style>\n    * { box-sizing: border-box; }\n    body {\n      margin: 0;\n      font-family: -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif;\n      background: #f6f6f8;\n      color: #1a1a2e;\n    }\n    nav {\n      background: #1a1a2e;\n      padding: 16px 32px;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n    }\n    nav .brand {\n      color: #fff;\n      font-weight: 700;\n      font-size: 1.3rem;\n      text-decoration: none;\n      letter-spacing: -0.5px;\n    }\n    nav .brand span { color: #e94560; }\n    nav .links a {\n      color: #ccc;\n      text-decoration: none;\n      margin-left: 20px;\n      font-size: 0.95rem;\n    }\n    nav .links a:hover { color: #fff; }\n    .container {\n      max-width: 900px;\n      margin: 40px auto;\n      padding: 0 20px;\n    }\n    .card {\n      background: #fff;\n      border-radius: 10px;\n      padding: 24px;\n      margin-bottom: 20px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.06);\n    }\n    .product-grid {\n      display: grid;\n      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));\n      gap: 18px;\n    }\n    .product-card h3 { margin: 0 0 8px 0; }\n    .price { color: #e94560; font-weight: 700; font-size: 1.1rem; }\n    a.btn, button.btn {\n      display: inline-block;\n      background: #e94560;\n      color: #fff;\n      border: none;\n      padding: 10px 18px;\n      border-radius: 6px;\n      text-decoration: none;\n      font-size: 0.95rem;\n      cursor: pointer;\n      margin-top: 10px;\n    }\n    a.btn.secondary { background: #eee; color: #1a1a2e; }\n    input, textarea {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ddd;\n      border-radius: 6px;\n      margin-bottom: 12px;\n      font-size: 1rem;\n      font-family: inherit;\n    }\n    .error { color: #c0392b; background: #fdecea; padding: 10px; border-radius: 6px; margin-bottom: 12px; }\n    .review { border-top: 1px solid #eee; padding: 10px 0; }\n    .review b { color: #1a1a2e; }\n    table { width: 100%; border-collapse: collapse; }\n    td, th { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }\n    .badge { background: #fdecea; color: #c0392b; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }\n  </style>\n</head>\n<body>\n  <nav>\n    <a class=\"brand\" href=\"/\">Vuln<span>Mart</span></a>\n    <div class=\"links\">\n      <a href=\"/\">Shop</a>\n      \n        <a href=\"/orders\">My Orders</a>\n        <a href=\"/logout\">Logout (sarah)</a>\n      \n    </div>\n  </nav>\n  <div class=\"container\">\n    \n  <h2>Order #1</h2>\n  \n    <div class=\"card\">\n      <p><b>Product:</b> Mechanical Keyboard</p>\n      <p><b>Quantity:</b> 1</p>\n      <p><b>Shipping Address:</b> Admin HQ, Server Room 4, Mumbai</p>\n      <p><b>Card ending in:</b> **** **** **** 4242</p>\n      <span class=\"badge\">Order data belongs to user_id, ownership not verified</span>\n    </div>\n  \n\n  </div>\n</body>\n</html>"
+      }
+    },
+    {
+      "test": "vulnmart-sqli",
+      "passed": true,
+      "details": {
+        "login": {
+          "url": "http://127.0.0.1:43023/",
+          "status": 200,
+          "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>VulnMart - Shop</title>\n  <style>\n    * { box-sizing: border-box; }\n    body {\n      margin: 0;\n      font-family: -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif;\n      background: #f6f6f8;\n      color: #1a1a2e;\n    }\n    nav {\n      background: #1a1a2e;\n      padding: 16px 32px;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n    }\n    nav .brand {\n      color: #fff;\n      font-weight: 700;\n      font-size: 1.3rem;\n      text-decoration: none;\n      letter-spacing: -0.5px;\n    }\n    nav .brand span { color: #e94560; }\n    nav .links a {\n      color: #ccc;\n      text-decoration: none;\n      margin-left: 20px;\n      font-size: 0.95rem;\n    }\n    nav .links a:hover { color: #fff; }\n    .container {\n      max-width: 900px;\n      margin: 40px auto;\n      padding: 0 20px;\n    }\n    .card {\n      background: #fff;\n      border-radius: 10px;\n      padding: 24px;\n      margin-bottom: 20px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.06);\n    }\n    .product-grid {\n      display: grid;\n      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));\n      gap: 18px;\n    }\n    .product-card h3 { margin: 0 0 8px 0; }\n    .price { color: #e94560; font-weight: 700; font-size: 1.1rem; }\n    a.btn, button.btn {\n      display: inline-block;\n      background: #e94560;\n      color: #fff;\n      border: none;\n      padding: 10px 18px;\n      border-radius: 6px;\n      text-decoration: none;\n      font-size: 0.95rem;\n      cursor: pointer;\n      margin-top: 10px;\n    }\n    a.btn.secondary { background: #eee; color: #1a1a2e; }\n    input, textarea {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ddd;\n      border-radius: 6px;\n      margin-bottom: 12px;\n      font-size: 1rem;\n      font-family: inherit;\n    }\n    .error { color: #c0392b; background: #fdecea; padding: 10px; border-radius: 6px; margin-bottom: 12px; }\n    .review { border-top: 1px solid #eee; padding: 10px 0; }\n    .review b { color: #1a1a2e; }\n    table { width: 100%; border-collapse: collapse; }\n    td, th { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }\n    .badge { background: #fdecea; color: #c0392b; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }\n  </style>\n</head>\n<body>\n  <nav>\n    <a class=\"brand\" href=\"/\">Vuln<span>Mart</span></a>\n    <div class=\"links\">\n      <a href=\"/\">Shop</a>\n      \n        <a href=\"/orders\">My Orders</a>\n        <a href=\"/logout\">Logout (admin)</a>\n      \n    </div>\n  </nav>\n  <div class=\"container\">\n    \n  <h2>Featured Products</h2>\n  <div class=\"product-grid\">\n    \n      <div class=\"card product-card\">\n        <h3>Mechanical Keyboard</h3>\n        <p>Hot-swappable, tactile brown switches.</p>\n        <div class=\"price\">₹3499.00</div>\n        <a class=\"btn\" href=\"/product/1\">View & Review</a>\n      </div>\n    \n      <div class=\"card product-card\">\n        <h3>Wireless Mouse</h3>\n        <p>Silent click, 2.4GHz + Bluetooth.</p>\n        <div class=\"price\">₹899.00</div>\n        <a class=\"btn\" href=\"/product/2\">View & Review</a>\n      </div>\n    \n      <div class=\"card product-card\">\n        <h3>USB-C Hub</h3>\n        <p>7-in-1, HDMI + SD card reader.</p>\n        <div class=\"price\">₹1299.00</div>\n        <a class=\"btn\" href=\"/product/3\">View & Review</a>\n      </div>\n    \n  </div>\n\n  </div>\n</body>\n</html>"
+        },
+        "order": {
+          "url": "http://127.0.0.1:43023/order/1",
+          "status": 200,
+          "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Order #1 - VulnMart</title>\n  <style>\n    * { box-sizing: border-box; }\n    body {\n      margin: 0;\n      font-family: -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif;\n      background: #f6f6f8;\n      color: #1a1a2e;\n    }\n    nav {\n      background: #1a1a2e;\n      padding: 16px 32px;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n    }\n    nav .brand {\n      color: #fff;\n      font-weight: 700;\n      font-size: 1.3rem;\n      text-decoration: none;\n      letter-spacing: -0.5px;\n    }\n    nav .brand span { color: #e94560; }\n    nav .links a {\n      color: #ccc;\n      text-decoration: none;\n      margin-left: 20px;\n      font-size: 0.95rem;\n    }\n    nav .links a:hover { color: #fff; }\n    .container {\n      max-width: 900px;\n      margin: 40px auto;\n      padding: 0 20px;\n    }\n    .card {\n      background: #fff;\n      border-radius: 10px;\n      padding: 24px;\n      margin-bottom: 20px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.06);\n    }\n    .product-grid {\n      display: grid;\n      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));\n      gap: 18px;\n    }\n    .product-card h3 { margin: 0 0 8px 0; }\n    .price { color: #e94560; font-weight: 700; font-size: 1.1rem; }\n    a.btn, button.btn {\n      display: inline-block;\n      background: #e94560;\n      color: #fff;\n      border: none;\n      padding: 10px 18px;\n      border-radius: 6px;\n      text-decoration: none;\n      font-size: 0.95rem;\n      cursor: pointer;\n      margin-top: 10px;\n    }\n    a.btn.secondary { background: #eee; color: #1a1a2e; }\n    input, textarea {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ddd;\n      border-radius: 6px;\n      margin-bottom: 12px;\n      font-size: 1rem;\n      font-family: inherit;\n    }\n    .error { color: #c0392b; background: #fdecea; padding: 10px; border-radius: 6px; margin-bottom: 12px; }\n    .review { border-top: 1px solid #eee; padding: 10px 0; }\n    .review b { color: #1a1a2e; }\n    table { width: 100%; border-collapse: collapse; }\n    td, th { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }\n    .badge { background: #fdecea; color: #c0392b; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }\n  </style>\n</head>\n<body>\n  <nav>\n    <a class=\"brand\" href=\"/\">Vuln<span>Mart</span></a>\n    <div class=\"links\">\n      <a href=\"/\">Shop</a>\n      \n        <a href=\"/orders\">My Orders</a>\n        <a href=\"/logout\">Logout (admin)</a>\n      \n    </div>\n  </nav>\n  <div class=\"container\">\n    \n  <h2>Order #1</h2>\n  \n    <div class=\"card\">\n      <p><b>Product:</b> Mechanical Keyboard</p>\n      <p><b>Quantity:</b> 1</p>\n      <p><b>Shipping Address:</b> Admin HQ, Server Room 4, Mumbai</p>\n      <p><b>Card ending in:</b> **** **** **** 4242</p>\n      <span class=\"badge\">Order data belongs to user_id, ownership not verified</span>\n    </div>\n  \n\n  </div>\n</body>\n</html>"
+        },
+        "payload": "admin' --"
+      }
+    },
+    {
+      "test": "vulnmart-stored-xss",
+      "passed": true,
+      "details": {
+        "response": {
+          "url": "http://127.0.0.1:43023/product/1",
+          "status": 200,
+          "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Mechanical Keyboard - VulnMart</title>\n  <style>\n    * { box-sizing: border-box; }\n    body {\n      margin: 0;\n      font-family: -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif;\n      background: #f6f6f8;\n      color: #1a1a2e;\n    }\n    nav {\n      background: #1a1a2e;\n      padding: 16px 32px;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n    }\n    nav .brand {\n      color: #fff;\n      font-weight: 700;\n      font-size: 1.3rem;\n      text-decoration: none;\n      letter-spacing: -0.5px;\n    }\n    nav .brand span { color: #e94560; }\n    nav .links a {\n      color: #ccc;\n      text-decoration: none;\n      margin-left: 20px;\n      font-size: 0.95rem;\n    }\n    nav .links a:hover { color: #fff; }\n    .container {\n      max-width: 900px;\n      margin: 40px auto;\n      padding: 0 20px;\n    }\n    .card {\n      background: #fff;\n      border-radius: 10px;\n      padding: 24px;\n      margin-bottom: 20px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.06);\n    }\n    .product-grid {\n      display: grid;\n      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));\n      gap: 18px;\n    }\n    .product-card h3 { margin: 0 0 8px 0; }\n    .price { color: #e94560; font-weight: 700; font-size: 1.1rem; }\n    a.btn, button.btn {\n      display: inline-block;\n      background: #e94560;\n      color: #fff;\n      border: none;\n      padding: 10px 18px;\n      border-radius: 6px;\n      text-decoration: none;\n      font-size: 0.95rem;\n      cursor: pointer;\n      margin-top: 10px;\n    }\n    a.btn.secondary { background: #eee; color: #1a1a2e; }\n    input, textarea {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ddd;\n      border-radius: 6px;\n      margin-bottom: 12px;\n      font-size: 1rem;\n      font-family: inherit;\n    }\n    .error { color: #c0392b; background: #fdecea; padding: 10px; border-radius: 6px; margin-bottom: 12px; }\n    .review { border-top: 1px solid #eee; padding: 10px 0; }\n    .review b { color: #1a1a2e; }\n    table { width: 100%; border-collapse: collapse; }\n    td, th { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }\n    .badge { background: #fdecea; color: #c0392b; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }\n  </style>\n</head>\n<body>\n  <nav>\n    <a class=\"brand\" href=\"/\">Vuln<span>Mart</span></a>\n    <div class=\"links\">\n      <a href=\"/\">Shop</a>\n      \n        <a href=\"/login\">Login</a>\n      \n    </div>\n  </nav>\n  <div class=\"container\">\n    \n  <div class=\"card\">\n    <h2>Mechanical Keyboard</h2>\n    <p>Hot-swappable, tactile brown switches.</p>\n    <div class=\"price\">₹3499.00</div>\n  </div>\n\n  <div class=\"card\">\n    <h3>Reviews</h3>\n    \n      <div class=\"review\">\n        <b>Guest</b><br>\n        <script>window.RBPO_XSS=1</script>\n      </div>\n    \n\n    <h4>Leave a review</h4>\n    <form method=\"POST\" action=\"/product/1/review\">\n      <textarea name=\"comment\" rows=\"3\" placeholder=\"Write your review...\"></textarea>\n      <button class=\"btn\" type=\"submit\">Submit Review</button>\n    </form>\n  </div>\n\n  </div>\n</body>\n</html>"
+        },
+        "payload": "<script>window.RBPO_XSS=1</script>",
+        "scope": "HTTP HTML output; browser JS execution not tested"
+      }
+    },
+    {
+      "test": "fixed-login-negative",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:39909/login",
+        "status": 200,
+        "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Login - VulnMart</title>\n  <style>\n    * { box-sizing: border-box; }\n    body {\n      margin: 0;\n      font-family: -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif;\n      background: #f6f6f8;\n      color: #1a1a2e;\n    }\n    nav {\n      background: #1a1a2e;\n      padding: 16px 32px;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n    }\n    nav .brand {\n      color: #fff;\n      font-weight: 700;\n      font-size: 1.3rem;\n      text-decoration: none;\n      letter-spacing: -0.5px;\n    }\n    nav .brand span { color: #e94560; }\n    nav .links a {\n      color: #ccc;\n      text-decoration: none;\n      margin-left: 20px;\n      font-size: 0.95rem;\n    }\n    nav .links a:hover { color: #fff; }\n    .container {\n      max-width: 900px;\n      margin: 40px auto;\n      padding: 0 20px;\n    }\n    .card {\n      background: #fff;\n      border-radius: 10px;\n      padding: 24px;\n      margin-bottom: 20px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.06);\n    }\n    .product-grid {\n      display: grid;\n      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));\n      gap: 18px;\n    }\n    .product-card h3 { margin: 0 0 8px 0; }\n    .price { color: #e94560; font-weight: 700; font-size: 1.1rem; }\n    a.btn, button.btn {\n      display: inline-block;\n      background: #e94560;\n      color: #fff;\n      border: none;\n      padding: 10px 18px;\n      border-radius: 6px;\n      text-decoration: none;\n      font-size: 0.95rem;\n      cursor: pointer;\n      margin-top: 10px;\n    }\n    a.btn.secondary { background: #eee; color: #1a1a2e; }\n    input, textarea {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ddd;\n      border-radius: 6px;\n      margin-bottom: 12px;\n      font-size: 1rem;\n      font-family: inherit;\n    }\n    .error { color: #c0392b; background: #fdecea; padding: 10px; border-radius: 6px; margin-bottom: 12px; }\n    .review { border-top: 1px solid #eee; padding: 10px 0; }\n    .review b { color: #1a1a2e; }\n    table { width: 100%; border-collapse: collapse; }\n    td, th { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }\n    .badge { background: #fdecea; color: #c0392b; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }\n  </style>\n</head>\n<body>\n  <nav>\n    <a class=\"brand\" href=\"/\">Vuln<span>Mart</span></a>\n    <div class=\"links\">\n      <a href=\"/\">Shop</a>\n      \n        <a href=\"/login\">Login</a>\n      \n    </div>\n  </nav>\n  <div class=\"container\">\n    \n  <div class=\"card\" style=\"max-width:380px; margin:0 auto;\">\n    <h2>Login</h2>\n    <div class=\"error\">Invalid credentials.</div>\n    <form method=\"POST\">\n      <input type=\"text\" name=\"username\" placeholder=\"Username\" autocomplete=\"off\">\n      <input type=\"password\" name=\"password\" placeholder=\"Password\">\n      <button class=\"btn\" type=\"submit\" style=\"width:100%;\">Login</button>\n    </form>\n  </div>\n\n  </div>\n</body>\n</html>"
+      }
+    },
+    {
+      "test": "fixed-own-order",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:39909/order/2",
+        "status": 200,
+        "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Order #2 - VulnMart</title>\n  <style>\n    * { box-sizing: border-box; }\n    body {\n      margin: 0;\n      font-family: -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif;\n      background: #f6f6f8;\n      color: #1a1a2e;\n    }\n    nav {\n      background: #1a1a2e;\n      padding: 16px 32px;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n    }\n    nav .brand {\n      color: #fff;\n      font-weight: 700;\n      font-size: 1.3rem;\n      text-decoration: none;\n      letter-spacing: -0.5px;\n    }\n    nav .brand span { color: #e94560; }\n    nav .links a {\n      color: #ccc;\n      text-decoration: none;\n      margin-left: 20px;\n      font-size: 0.95rem;\n    }\n    nav .links a:hover { color: #fff; }\n    .container {\n      max-width: 900px;\n      margin: 40px auto;\n      padding: 0 20px;\n    }\n    .card {\n      background: #fff;\n      border-radius: 10px;\n      padding: 24px;\n      margin-bottom: 20px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.06);\n    }\n    .product-grid {\n      display: grid;\n      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));\n      gap: 18px;\n    }\n    .product-card h3 { margin: 0 0 8px 0; }\n    .price { color: #e94560; font-weight: 700; font-size: 1.1rem; }\n    a.btn, button.btn {\n      display: inline-block;\n      background: #e94560;\n      color: #fff;\n      border: none;\n      padding: 10px 18px;\n      border-radius: 6px;\n      text-decoration: none;\n      font-size: 0.95rem;\n      cursor: pointer;\n      margin-top: 10px;\n    }\n    a.btn.secondary { background: #eee; color: #1a1a2e; }\n    input, textarea {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ddd;\n      border-radius: 6px;\n      margin-bottom: 12px;\n      font-size: 1rem;\n      font-family: inherit;\n    }\n    .error { color: #c0392b; background: #fdecea; padding: 10px; border-radius: 6px; margin-bottom: 12px; }\n    .review { border-top: 1px solid #eee; padding: 10px 0; }\n    .review b { color: #1a1a2e; }\n    table { width: 100%; border-collapse: collapse; }\n    td, th { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }\n    .badge { background: #fdecea; color: #c0392b; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }\n  </style>\n</head>\n<body>\n  <nav>\n    <a class=\"brand\" href=\"/\">Vuln<span>Mart</span></a>\n    <div class=\"links\">\n      <a href=\"/\">Shop</a>\n      \n        <a href=\"/orders\">My Orders</a>\n        <a href=\"/logout\">Logout (sarah)</a>\n      \n    </div>\n  </nav>\n  <div class=\"container\">\n    \n  <h2>Order #2</h2>\n  \n    <div class=\"card\">\n      <p><b>Product:</b> Wireless Mouse</p>\n      <p><b>Quantity:</b> 2</p>\n      <p><b>Shipping Address:</b> Sarah&#39;s House, 12 Palm Street, Pune</p>\n      <p><b>Card ending in:</b> **** **** **** 1881</p>\n      <span class=\"badge\">Order data belongs to user_id, ownership not verified</span>\n    </div>\n  \n\n  </div>\n</body>\n</html>"
+      }
+    },
+    {
+      "test": "fixed-idor",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:39909/order/1",
+        "status": 404,
+        "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Order # - VulnMart</title>\n  <style>\n    * { box-sizing: border-box; }\n    body {\n      margin: 0;\n      font-family: -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif;\n      background: #f6f6f8;\n      color: #1a1a2e;\n    }\n    nav {\n      background: #1a1a2e;\n      padding: 16px 32px;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n    }\n    nav .brand {\n      color: #fff;\n      font-weight: 700;\n      font-size: 1.3rem;\n      text-decoration: none;\n      letter-spacing: -0.5px;\n    }\n    nav .brand span { color: #e94560; }\n    nav .links a {\n      color: #ccc;\n      text-decoration: none;\n      margin-left: 20px;\n      font-size: 0.95rem;\n    }\n    nav .links a:hover { color: #fff; }\n    .container {\n      max-width: 900px;\n      margin: 40px auto;\n      padding: 0 20px;\n    }\n    .card {\n      background: #fff;\n      border-radius: 10px;\n      padding: 24px;\n      margin-bottom: 20px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.06);\n    }\n    .product-grid {\n      display: grid;\n      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));\n      gap: 18px;\n    }\n    .product-card h3 { margin: 0 0 8px 0; }\n    .price { color: #e94560; font-weight: 700; font-size: 1.1rem; }\n    a.btn, button.btn {\n      display: inline-block;\n      background: #e94560;\n      color: #fff;\n      border: none;\n      padding: 10px 18px;\n      border-radius: 6px;\n      text-decoration: none;\n      font-size: 0.95rem;\n      cursor: pointer;\n      margin-top: 10px;\n    }\n    a.btn.secondary { background: #eee; color: #1a1a2e; }\n    input, textarea {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ddd;\n      border-radius: 6px;\n      margin-bottom: 12px;\n      font-size: 1rem;\n      font-family: inherit;\n    }\n    .error { color: #c0392b; background: #fdecea; padding: 10px; border-radius: 6px; margin-bottom: 12px; }\n    .review { border-top: 1px solid #eee; padding: 10px 0; }\n    .review b { color: #1a1a2e; }\n    table { width: 100%; border-collapse: collapse; }\n    td, th { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }\n    .badge { background: #fdecea; color: #c0392b; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }\n  </style>\n</head>\n<body>\n  <nav>\n    <a class=\"brand\" href=\"/\">Vuln<span>Mart</span></a>\n    <div class=\"links\">\n      <a href=\"/\">Shop</a>\n      \n        <a href=\"/orders\">My Orders</a>\n        <a href=\"/logout\">Logout (sarah)</a>\n      \n    </div>\n  </nav>\n  <div class=\"container\">\n    \n  <h2>Order #</h2>\n  \n    <p>Order not found.</p>\n  \n\n  </div>\n</body>\n</html>"
+      }
+    },
+    {
+      "test": "fixed-sqli",
+      "passed": true,
+      "details": {
+        "login": {
+          "url": "http://127.0.0.1:39909/login",
+          "status": 200,
+          "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Login - VulnMart</title>\n  <style>\n    * { box-sizing: border-box; }\n    body {\n      margin: 0;\n      font-family: -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif;\n      background: #f6f6f8;\n      color: #1a1a2e;\n    }\n    nav {\n      background: #1a1a2e;\n      padding: 16px 32px;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n    }\n    nav .brand {\n      color: #fff;\n      font-weight: 700;\n      font-size: 1.3rem;\n      text-decoration: none;\n      letter-spacing: -0.5px;\n    }\n    nav .brand span { color: #e94560; }\n    nav .links a {\n      color: #ccc;\n      text-decoration: none;\n      margin-left: 20px;\n      font-size: 0.95rem;\n    }\n    nav .links a:hover { color: #fff; }\n    .container {\n      max-width: 900px;\n      margin: 40px auto;\n      padding: 0 20px;\n    }\n    .card {\n      background: #fff;\n      border-radius: 10px;\n      padding: 24px;\n      margin-bottom: 20px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.06);\n    }\n    .product-grid {\n      display: grid;\n      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));\n      gap: 18px;\n    }\n    .product-card h3 { margin: 0 0 8px 0; }\n    .price { color: #e94560; font-weight: 700; font-size: 1.1rem; }\n    a.btn, button.btn {\n      display: inline-block;\n      background: #e94560;\n      color: #fff;\n      border: none;\n      padding: 10px 18px;\n      border-radius: 6px;\n      text-decoration: none;\n      font-size: 0.95rem;\n      cursor: pointer;\n      margin-top: 10px;\n    }\n    a.btn.secondary { background: #eee; color: #1a1a2e; }\n    input, textarea {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ddd;\n      border-radius: 6px;\n      margin-bottom: 12px;\n      font-size: 1rem;\n      font-family: inherit;\n    }\n    .error { color: #c0392b; background: #fdecea; padding: 10px; border-radius: 6px; margin-bottom: 12px; }\n    .review { border-top: 1px solid #eee; padding: 10px 0; }\n    .review b { color: #1a1a2e; }\n    table { width: 100%; border-collapse: collapse; }\n    td, th { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }\n    .badge { background: #fdecea; color: #c0392b; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }\n  </style>\n</head>\n<body>\n  <nav>\n    <a class=\"brand\" href=\"/\">Vuln<span>Mart</span></a>\n    <div class=\"links\">\n      <a href=\"/\">Shop</a>\n      \n        <a href=\"/login\">Login</a>\n      \n    </div>\n  </nav>\n  <div class=\"container\">\n    \n  <div class=\"card\" style=\"max-width:380px; margin:0 auto;\">\n    <h2>Login</h2>\n    <div class=\"error\">Invalid credentials.</div>\n    <form method=\"POST\">\n      <input type=\"text\" name=\"username\" placeholder=\"Username\" autocomplete=\"off\">\n      <input type=\"password\" name=\"password\" placeholder=\"Password\">\n      <button class=\"btn\" type=\"submit\" style=\"width:100%;\">Login</button>\n    </form>\n  </div>\n\n  </div>\n</body>\n</html>"
+        },
+        "order": {
+          "url": "http://127.0.0.1:39909/login",
+          "status": 200,
+          "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Login - VulnMart</title>\n  <style>\n    * { box-sizing: border-box; }\n    body {\n      margin: 0;\n      font-family: -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif;\n      background: #f6f6f8;\n      color: #1a1a2e;\n    }\n    nav {\n      background: #1a1a2e;\n      padding: 16px 32px;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n    }\n    nav .brand {\n      color: #fff;\n      font-weight: 700;\n      font-size: 1.3rem;\n      text-decoration: none;\n      letter-spacing: -0.5px;\n    }\n    nav .brand span { color: #e94560; }\n    nav .links a {\n      color: #ccc;\n      text-decoration: none;\n      margin-left: 20px;\n      font-size: 0.95rem;\n    }\n    nav .links a:hover { color: #fff; }\n    .container {\n      max-width: 900px;\n      margin: 40px auto;\n      padding: 0 20px;\n    }\n    .card {\n      background: #fff;\n      border-radius: 10px;\n      padding: 24px;\n      margin-bottom: 20px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.06);\n    }\n    .product-grid {\n      display: grid;\n      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));\n      gap: 18px;\n    }\n    .product-card h3 { margin: 0 0 8px 0; }\n    .price { color: #e94560; font-weight: 700; font-size: 1.1rem; }\n    a.btn, button.btn {\n      display: inline-block;\n      background: #e94560;\n      color: #fff;\n      border: none;\n      padding: 10px 18px;\n      border-radius: 6px;\n      text-decoration: none;\n      font-size: 0.95rem;\n      cursor: pointer;\n      margin-top: 10px;\n    }\n    a.btn.secondary { background: #eee; color: #1a1a2e; }\n    input, textarea {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ddd;\n      border-radius: 6px;\n      margin-bottom: 12px;\n      font-size: 1rem;\n      font-family: inherit;\n    }\n    .error { color: #c0392b; background: #fdecea; padding: 10px; border-radius: 6px; margin-bottom: 12px; }\n    .review { border-top: 1px solid #eee; padding: 10px 0; }\n    .review b { color: #1a1a2e; }\n    table { width: 100%; border-collapse: collapse; }\n    td, th { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }\n    .badge { background: #fdecea; color: #c0392b; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }\n  </style>\n</head>\n<body>\n  <nav>\n    <a class=\"brand\" href=\"/\">Vuln<span>Mart</span></a>\n    <div class=\"links\">\n      <a href=\"/\">Shop</a>\n      \n        <a href=\"/login\">Login</a>\n      \n    </div>\n  </nav>\n  <div class=\"container\">\n    \n  <div class=\"card\" style=\"max-width:380px; margin:0 auto;\">\n    <h2>Login</h2>\n    \n    <form method=\"POST\">\n      <input type=\"text\" name=\"username\" placeholder=\"Username\" autocomplete=\"off\">\n      <input type=\"password\" name=\"password\" placeholder=\"Password\">\n      <button class=\"btn\" type=\"submit\" style=\"width:100%;\">Login</button>\n    </form>\n  </div>\n\n  </div>\n</body>\n</html>"
+        },
+        "payload": "admin' --"
+      }
+    },
+    {
+      "test": "fixed-stored-xss",
+      "passed": true,
+      "details": {
+        "response": {
+          "url": "http://127.0.0.1:39909/product/1",
+          "status": 200,
+          "body": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\">\n  <title>Mechanical Keyboard - VulnMart</title>\n  <style>\n    * { box-sizing: border-box; }\n    body {\n      margin: 0;\n      font-family: -apple-system, \"Segoe UI\", Roboto, Arial, sans-serif;\n      background: #f6f6f8;\n      color: #1a1a2e;\n    }\n    nav {\n      background: #1a1a2e;\n      padding: 16px 32px;\n      display: flex;\n      justify-content: space-between;\n      align-items: center;\n    }\n    nav .brand {\n      color: #fff;\n      font-weight: 700;\n      font-size: 1.3rem;\n      text-decoration: none;\n      letter-spacing: -0.5px;\n    }\n    nav .brand span { color: #e94560; }\n    nav .links a {\n      color: #ccc;\n      text-decoration: none;\n      margin-left: 20px;\n      font-size: 0.95rem;\n    }\n    nav .links a:hover { color: #fff; }\n    .container {\n      max-width: 900px;\n      margin: 40px auto;\n      padding: 0 20px;\n    }\n    .card {\n      background: #fff;\n      border-radius: 10px;\n      padding: 24px;\n      margin-bottom: 20px;\n      box-shadow: 0 2px 10px rgba(0,0,0,0.06);\n    }\n    .product-grid {\n      display: grid;\n      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));\n      gap: 18px;\n    }\n    .product-card h3 { margin: 0 0 8px 0; }\n    .price { color: #e94560; font-weight: 700; font-size: 1.1rem; }\n    a.btn, button.btn {\n      display: inline-block;\n      background: #e94560;\n      color: #fff;\n      border: none;\n      padding: 10px 18px;\n      border-radius: 6px;\n      text-decoration: none;\n      font-size: 0.95rem;\n      cursor: pointer;\n      margin-top: 10px;\n    }\n    a.btn.secondary { background: #eee; color: #1a1a2e; }\n    input, textarea {\n      width: 100%;\n      padding: 10px;\n      border: 1px solid #ddd;\n      border-radius: 6px;\n      margin-bottom: 12px;\n      font-size: 1rem;\n      font-family: inherit;\n    }\n    .error { color: #c0392b; background: #fdecea; padding: 10px; border-radius: 6px; margin-bottom: 12px; }\n    .review { border-top: 1px solid #eee; padding: 10px 0; }\n    .review b { color: #1a1a2e; }\n    table { width: 100%; border-collapse: collapse; }\n    td, th { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }\n    .badge { background: #fdecea; color: #c0392b; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; }\n  </style>\n</head>\n<body>\n  <nav>\n    <a class=\"brand\" href=\"/\">Vuln<span>Mart</span></a>\n    <div class=\"links\">\n      <a href=\"/\">Shop</a>\n      \n        <a href=\"/login\">Login</a>\n      \n    </div>\n  </nav>\n  <div class=\"container\">\n    \n  <div class=\"card\">\n    <h2>Mechanical Keyboard</h2>\n    <p>Hot-swappable, tactile brown switches.</p>\n    <div class=\"price\">₹3499.00</div>\n  </div>\n\n  <div class=\"card\">\n    <h3>Reviews</h3>\n    \n      <div class=\"review\">\n        <b>Guest</b><br>\n        &lt;script&gt;window.RBPO_XSS=1&lt;/script&gt;\n      </div>\n    \n\n    <h4>Leave a review</h4>\n    <form method=\"POST\" action=\"/product/1/review\">\n      <textarea name=\"comment\" rows=\"3\" placeholder=\"Write your review...\"></textarea>\n      <button class=\"btn\" type=\"submit\">Submit Review</button>\n    </form>\n  </div>\n\n  </div>\n</body>\n</html>"
+        },
+        "payload": "<script>window.RBPO_XSS=1</script>",
+        "scope": "HTTP HTML output; browser JS execution not tested"
+      }
+    },
+    {
+      "test": "cpp-harness-copy-short",
+      "passed": true,
+      "details": {
+        "command": [
+          "/workspace/scratch/5b725af9bd14/rbpo-pr2/build/harness",
+          "copy",
+          "test"
+        ],
+        "returncode": 0,
+        "stdout": "Copied: test\n",
+        "stderr": "",
+        "ASAN_OPTIONS": "detect_leaks=0"
+      }
+    },
+    {
+      "test": "cpp-harness-copy-long",
+      "passed": true,
+      "details": {
+        "command": [
+          "/workspace/scratch/5b725af9bd14/rbpo-pr2/build/harness",
+          "copy",
+          "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        ],
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "=================================================================\n==27==ERROR: AddressSanitizer: stack-buffer-overflow on address 0x7efd1090002a at pc 0x7efd13635923 bp 0x7ffc7d76c0a0 sp 0x7ffc7d76b848\nWRITE of size 65 at 0x7efd1090002a thread T0\n    #0 0x7efd13635922 in strcpy ../../../../src/libsanitizer/asan/asan_interceptors.cpp:563\n    #1 0x4026b1 in vulnerable_copy(char*) /workspace/scratch/5b725af9bd14/rbpo-pr2/projects/cpp/vulnerable.cpp:10\n    #2 0x402c11 in main /workspace/scratch/5b725af9bd14/rbpo-pr2/projects/cpp/harness.cpp:8\n    #3 0x7efd129f91c9  (/lib/x86_64-linux-gnu/libc.so.6+0x2a1c9) (BuildId: 274eec488d230825a136fa9c4d85370fed7a0a5e)\n    #4 0x7efd129f928a in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x2a28a) (BuildId: 274eec488d230825a136fa9c4d85370fed7a0a5e)\n    #5 0x402534 in _start (/workspace/scratch/5b725af9bd14/rbpo-pr2/build/harness+0x402534) (BuildId: 41bb6461c59bbb3b24ec5baf817bf55577931908)\n\nAddress 0x7efd1090002a is located in stack of thread T0 at offset 42 in frame\n    #0 0x402605 in vulnerable_copy(char*) /workspace/scratch/5b725af9bd14/rbpo-pr2/projects/cpp/vulnerable.cpp:8\n\n  This frame has 1 object(s):\n    [32, 42) 'buffer' (line 9) <== Memory access at offset 42 overflows this variable\nHINT: this may be a false positive if your program uses some custom stack unwind mechanism, swapcontext or vfork\n      (longjmp and C++ exceptions *are* supported)\nSUMMARY: AddressSanitizer: stack-buffer-overflow ../../../../src/libsanitizer/asan/asan_interceptors.cpp:563 in strcpy\nShadow bytes around the buggy address:\n  0x7efd108ffd80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x7efd108ffe00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x7efd108ffe80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x7efd108fff00: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x7efd108fff80: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n=>0x7efd10900000: f1 f1 f1 f1 00[02]f3 f3 00 00 00 00 00 00 00 00\n  0x7efd10900080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x7efd10900100: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x7efd10900180: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x7efd10900200: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\n  0x7efd10900280: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00\nShadow byte legend (one shadow byte represents 8 application bytes):\n  Addressable:           00\n  Partially addressable: 01 02 03 04 05 06 07 \n  Heap left redzone:       fa\n  Freed heap region:       fd\n  Stack left redzone:      f1\n  Stack mid redzone:       f2\n  Stack right redzone:     f3\n  Stack after return:      f5\n  Stack use after scope:   f8\n  Global redzone:          f9\n  Global init order:       f6\n  Poisoned by user:        f7\n  Container overflow:      fc\n  Array cookie:            ac\n  Intra object redzone:    bb\n  ASan internal:           fe\n  Left alloca redzone:     ca\n  Right alloca redzone:    cb\n==27==ABORTING\n",
+        "ASAN_OPTIONS": "detect_leaks=0"
+      }
+    },
+    {
+      "test": "cpp-harness-format-short",
+      "passed": true,
+      "details": {
+        "command": [
+          "/workspace/scratch/5b725af9bd14/rbpo-pr2/build/harness",
+          "format",
+          "%%"
+        ],
+        "returncode": 0,
+        "stdout": "%",
+        "stderr": "",
+        "ASAN_OPTIONS": "detect_leaks=0"
+      }
+    },
+    {
+      "test": "cpp-harness-command-short",
+      "passed": true,
+      "details": {
+        "command": [
+          "/workspace/scratch/5b725af9bd14/rbpo-pr2/build/harness",
+          "command",
+          "x;printf RBPO_CMD"
+        ],
+        "returncode": 0,
+        "stdout": "x\nRBPO_CMD",
+        "stderr": "",
+        "ASAN_OPTIONS": "detect_leaks=0"
+      }
+    },
+    {
+      "test": "cpp-fixed-copy-short",
+      "passed": true,
+      "details": {
+        "command": [
+          "/workspace/scratch/5b725af9bd14/rbpo-pr2/build/fixed",
+          "copy",
+          "test"
+        ],
+        "returncode": 0,
+        "stdout": "Copied: test\n",
+        "stderr": "",
+        "ASAN_OPTIONS": "detect_leaks=0"
+      }
+    },
+    {
+      "test": "cpp-fixed-copy-long",
+      "passed": true,
+      "details": {
+        "command": [
+          "/workspace/scratch/5b725af9bd14/rbpo-pr2/build/fixed",
+          "copy",
+          "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+        ],
+        "returncode": 0,
+        "stdout": "Copied: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n",
+        "stderr": "",
+        "ASAN_OPTIONS": "detect_leaks=0"
+      }
+    },
+    {
+      "test": "cpp-fixed-format-short",
+      "passed": true,
+      "details": {
+        "command": [
+          "/workspace/scratch/5b725af9bd14/rbpo-pr2/build/fixed",
+          "format",
+          "%%"
+        ],
+        "returncode": 0,
+        "stdout": "%%",
+        "stderr": "",
+        "ASAN_OPTIONS": "detect_leaks=0"
+      }
+    },
+    {
+      "test": "cpp-fixed-command-short",
+      "passed": true,
+      "details": {
+        "command": [
+          "/workspace/scratch/5b725af9bd14/rbpo-pr2/build/fixed",
+          "command",
+          "x;printf RBPO_CMD"
+        ],
+        "returncode": 0,
+        "stdout": "x;printf RBPO_CMD\n",
+        "stderr": "",
+        "ASAN_OPTIONS": "detect_leaks=0"
+      }
+    },
+    {
+      "test": "vulnerable.js-sqli",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:44141/user?username=%27+OR+1%3D1+--",
+        "status": 200,
+        "body": "{\"id\":1,\"username\":\"admin\",\"role\":\"admin\"}"
+      }
+    },
+    {
+      "test": "vulnerable.js-sqli-normal",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:44141/user?username=alice",
+        "status": 200,
+        "body": "{\"id\":2,\"username\":\"alice\",\"role\":\"user\"}"
+      }
+    },
+    {
+      "test": "vulnerable.js-sqli-negative",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:44141/user?username=absent",
+        "status": 200,
+        "body": "null"
+      }
+    },
+    {
+      "test": "vulnerable.js-xss",
+      "passed": true,
+      "details": {
+        "response": {
+          "url": "http://127.0.0.1:44141/hello?name=%3Cscript%3Ewindow.RBPO_XSS%3D1%3C%2Fscript%3E",
+          "status": 200,
+          "body": "<h1>Hello, <script>window.RBPO_XSS=1</script>!</h1>"
+        },
+        "scope": "HTML output only"
+      }
+    },
+    {
+      "test": "vulnerable.js-command",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:44141/ping?host=127.0.0.1%3B+printf+RBPO_CMD",
+        "status": 200,
+        "body": "RBPO_CMD"
+      }
+    },
+    {
+      "test": "vulnerable.js-hello-normal",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:44141/hello?name=Alice",
+        "status": 200,
+        "body": "<h1>Hello, Alice!</h1>"
+      }
+    },
+    {
+      "test": "fixed.js-sqli",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:35979/user?username=%27+OR+1%3D1+--",
+        "status": 200,
+        "body": "null"
+      }
+    },
+    {
+      "test": "fixed.js-sqli-normal",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:35979/user?username=alice",
+        "status": 200,
+        "body": "{\"id\":2,\"username\":\"alice\",\"role\":\"user\"}"
+      }
+    },
+    {
+      "test": "fixed.js-sqli-negative",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:35979/user?username=absent",
+        "status": 200,
+        "body": "null"
+      }
+    },
+    {
+      "test": "fixed.js-xss",
+      "passed": true,
+      "details": {
+        "response": {
+          "url": "http://127.0.0.1:35979/hello?name=%3Cscript%3Ewindow.RBPO_XSS%3D1%3C%2Fscript%3E",
+          "status": 200,
+          "body": "<h1>Hello, &lt;script&gt;window.RBPO_XSS=1&lt;/script&gt;!</h1>"
+        },
+        "scope": "HTML output only"
+      }
+    },
+    {
+      "test": "fixed.js-command",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:35979/ping?host=127.0.0.1%3B+printf+RBPO_CMD",
+        "status": 400,
+        "body": "Bad Request"
+      }
+    },
+    {
+      "test": "fixed.js-hello-normal",
+      "passed": true,
+      "details": {
+        "url": "http://127.0.0.1:35979/hello?name=Alice",
+        "status": 200,
+        "body": "<h1>Hello, Alice!</h1>"
+      }
+    }
+  ],
+  "errors": [],
+  "passed": 30,
+  "total": 30
+}

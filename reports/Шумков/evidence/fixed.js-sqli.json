@@ -1,0 +1,9 @@
+{
+  "test": "fixed.js-sqli",
+  "passed": true,
+  "details": {
+    "url": "http://127.0.0.1:35979/user?username=%27+OR+1%3D1+--",
+    "status": 200,
+    "body": "null"
+  }
+}

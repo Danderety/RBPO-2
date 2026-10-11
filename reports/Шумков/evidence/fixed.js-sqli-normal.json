@@ -1,0 +1,9 @@
+{
+  "test": "fixed.js-sqli-normal",
+  "passed": true,
+  "details": {
+    "url": "http://127.0.0.1:35979/user?username=alice",
+    "status": 200,
+    "body": "{\"id\":2,\"username\":\"alice\",\"role\":\"user\"}"
+  }
+}

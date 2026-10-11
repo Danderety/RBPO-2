@@ -1,0 +1,15 @@
+{
+  "test": "cpp-fixed-copy-long",
+  "passed": true,
+  "details": {
+    "command": [
+      "/workspace/scratch/5b725af9bd14/rbpo-pr2/build/fixed",
+      "copy",
+      "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+    ],
+    "returncode": 0,
+    "stdout": "Copied: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA\n",
+    "stderr": "",
+    "ASAN_OPTIONS": "detect_leaks=0"
+  }
+}

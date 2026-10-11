@@ -1,0 +1,9 @@
+{
+  "test": "fixed.js-sqli-negative",
+  "passed": true,
+  "details": {
+    "url": "http://127.0.0.1:35979/user?username=absent",
+    "status": 200,
+    "body": "null"
+  }
+}

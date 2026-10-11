@@ -1,0 +1,19 @@
+{
+  "command": [
+    "g++",
+    "-std=c++17",
+    "-Wall",
+    "-Wextra",
+    "-Wformat=2",
+    "-g",
+    "-fsanitize=address,undefined",
+    "-fno-omit-frame-pointer",
+    "-no-pie",
+    "/workspace/scratch/5b725af9bd14/rbpo-pr2/projects/cpp/fixed.cpp",
+    "-o",
+    "/workspace/scratch/5b725af9bd14/rbpo-pr2/build/fixed"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": ""
+}

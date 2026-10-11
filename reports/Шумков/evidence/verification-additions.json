@@ -1,0 +1,184 @@
+{
+  "environment": {
+    "timestamp_utc": "2026-09-17T15:33:33.706508+00:00",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.12 (main, Oct 10 2025, 12:42:57)  [GCC UCRT 15.2.0 64 bit (AMD64)]",
+    "compiler": {
+      "command": [
+        "g++",
+        "--version"
+      ],
+      "returncode": 0,
+      "stdout": "g++ (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r8) 13.2.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+      "stderr": ""
+    }
+  },
+  "tests": [
+    {
+      "test": "null_pointer-valid",
+      "passed": true,
+      "method": "dynamic_process",
+      "environment": {
+        "timestamp_utc": "2026-09-17T15:33:33.706508+00:00",
+        "platform": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.12 (main, Oct 10 2025, 12:42:57)  [GCC UCRT 15.2.0 64 bit (AMD64)]",
+        "compiler": {
+          "command": [
+            "g++",
+            "--version"
+          ],
+          "returncode": 0,
+          "stdout": "g++ (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r8) 13.2.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+          "stderr": ""
+        }
+      },
+      "details": {
+        "command": [
+          "C:\\Users\\Шмеркович Кирилл\\Documents\\Лабораторная РБПО\\lab2-corrected\\repository\\build\\null_pointer.exe",
+          "valid"
+        ],
+        "returncode": 0,
+        "stdout": "42\n",
+        "stderr": ""
+      }
+    },
+    {
+      "test": "null_pointer-null",
+      "passed": true,
+      "method": "dynamic_process",
+      "environment": {
+        "timestamp_utc": "2026-09-17T15:33:33.706508+00:00",
+        "platform": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.12 (main, Oct 10 2025, 12:42:57)  [GCC UCRT 15.2.0 64 bit (AMD64)]",
+        "compiler": {
+          "command": [
+            "g++",
+            "--version"
+          ],
+          "returncode": 0,
+          "stdout": "g++ (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r8) 13.2.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+          "stderr": ""
+        }
+      },
+      "details": {
+        "command": [
+          "C:\\Users\\Шмеркович Кирилл\\Documents\\Лабораторная РБПО\\lab2-corrected\\repository\\build\\null_pointer.exe",
+          "null"
+        ],
+        "returncode": 3221225477,
+        "stdout": "",
+        "stderr": ""
+      }
+    },
+    {
+      "test": "null_pointer_fixed-valid",
+      "passed": true,
+      "method": "dynamic_process",
+      "environment": {
+        "timestamp_utc": "2026-09-17T15:33:33.706508+00:00",
+        "platform": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.12 (main, Oct 10 2025, 12:42:57)  [GCC UCRT 15.2.0 64 bit (AMD64)]",
+        "compiler": {
+          "command": [
+            "g++",
+            "--version"
+          ],
+          "returncode": 0,
+          "stdout": "g++ (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r8) 13.2.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+          "stderr": ""
+        }
+      },
+      "details": {
+        "command": [
+          "C:\\Users\\Шмеркович Кирилл\\Documents\\Лабораторная РБПО\\lab2-corrected\\repository\\build\\null_pointer_fixed.exe",
+          "valid"
+        ],
+        "returncode": 0,
+        "stdout": "42\n",
+        "stderr": ""
+      }
+    },
+    {
+      "test": "null_pointer_fixed-null",
+      "passed": true,
+      "method": "dynamic_process",
+      "environment": {
+        "timestamp_utc": "2026-09-17T15:33:33.706508+00:00",
+        "platform": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.12 (main, Oct 10 2025, 12:42:57)  [GCC UCRT 15.2.0 64 bit (AMD64)]",
+        "compiler": {
+          "command": [
+            "g++",
+            "--version"
+          ],
+          "returncode": 0,
+          "stdout": "g++ (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r8) 13.2.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+          "stderr": ""
+        }
+      },
+      "details": {
+        "command": [
+          "C:\\Users\\Шмеркович Кирилл\\Documents\\Лабораторная РБПО\\lab2-corrected\\repository\\build\\null_pointer_fixed.exe",
+          "null"
+        ],
+        "returncode": 0,
+        "stdout": "null rejected\n",
+        "stderr": ""
+      }
+    },
+    {
+      "test": "static-session-key",
+      "passed": true,
+      "method": "static_source_review",
+      "environment": {
+        "timestamp_utc": "2026-09-17T15:33:33.706508+00:00",
+        "platform": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.12 (main, Oct 10 2025, 12:42:57)  [GCC UCRT 15.2.0 64 bit (AMD64)]",
+        "compiler": {
+          "command": [
+            "g++",
+            "--version"
+          ],
+          "returncode": 0,
+          "stdout": "g++ (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r8) 13.2.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+          "stderr": ""
+        }
+      },
+      "details": {
+        "file": "projects/python/vulnmart/app.py",
+        "line": 19,
+        "source_sha256": "cfd57c346e4202143012fdf5742efd99cdbc7ecf43f4a8ca956893d6e39627fd",
+        "observation": "AST: app.secret_key assigned a string literal; existing Bandit B105 corroborates this.",
+        "limitation": "Static confirmation; session forgery not executed."
+      }
+    },
+    {
+      "test": "static-plaintext-passwords",
+      "passed": true,
+      "method": "static_source_review",
+      "environment": {
+        "timestamp_utc": "2026-09-17T15:33:33.706508+00:00",
+        "platform": "Windows-11-10.0.26200-SP0",
+        "python": "3.12.12 (main, Oct 10 2025, 12:42:57)  [GCC UCRT 15.2.0 64 bit (AMD64)]",
+        "compiler": {
+          "command": [
+            "g++",
+            "--version"
+          ],
+          "returncode": 0,
+          "stdout": "g++ (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r8) 13.2.0\nCopyright (C) 2023 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+          "stderr": ""
+        }
+      },
+      "details": {
+        "file": "projects/python/vulnmart/app.py",
+        "line": 78,
+        "source_sha256": "cfd57c346e4202143012fdf5742efd99cdbc7ecf43f4a8ca956893d6e39627fd",
+        "observation": "Literal passwords inserted directly into users; login compares submitted password directly.",
+        "limitation": "Static data-flow confirmation; database extraction not executed."
+      }
+    }
+  ],
+  "passed": 6,
+  "total": 6
+}

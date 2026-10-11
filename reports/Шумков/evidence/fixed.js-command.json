@@ -1,0 +1,9 @@
+{
+  "test": "fixed.js-command",
+  "passed": true,
+  "details": {
+    "url": "http://127.0.0.1:35979/ping?host=127.0.0.1%3B+printf+RBPO_CMD",
+    "status": 400,
+    "body": "Bad Request"
+  }
+}

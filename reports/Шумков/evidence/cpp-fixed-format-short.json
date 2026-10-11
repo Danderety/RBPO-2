@@ -1,0 +1,15 @@
+{
+  "test": "cpp-fixed-format-short",
+  "passed": true,
+  "details": {
+    "command": [
+      "/workspace/scratch/5b725af9bd14/rbpo-pr2/build/fixed",
+      "format",
+      "%%"
+    ],
+    "returncode": 0,
+    "stdout": "%%",
+    "stderr": "",
+    "ASAN_OPTIONS": "detect_leaks=0"
+  }
+}
