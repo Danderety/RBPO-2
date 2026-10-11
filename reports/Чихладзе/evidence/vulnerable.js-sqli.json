@@ -1,0 +1,9 @@
+{
+  "test": "vulnerable.js-sqli",
+  "passed": true,
+  "details": {
+    "url": "http://127.0.0.1:44141/user?username=%27+OR+1%3D1+--",
+    "status": 200,
+    "body": "{\"id\":1,\"username\":\"admin\",\"role\":\"admin\"}"
+  }
+}

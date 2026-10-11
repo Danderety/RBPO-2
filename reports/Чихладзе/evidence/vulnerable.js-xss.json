@@ -1,0 +1,12 @@
+{
+  "test": "vulnerable.js-xss",
+  "passed": true,
+  "details": {
+    "response": {
+      "url": "http://127.0.0.1:44141/hello?name=%3Cscript%3Ewindow.RBPO_XSS%3D1%3C%2Fscript%3E",
+      "status": 200,
+      "body": "<h1>Hello, <script>window.RBPO_XSS=1</script>!</h1>"
+    },
+    "scope": "HTML output only"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "test": "vulnerable.js-hello-normal",
+  "passed": true,
+  "details": {
+    "url": "http://127.0.0.1:44141/hello?name=Alice",
+    "status": 200,
+    "body": "<h1>Hello, Alice!</h1>"
+  }
+}

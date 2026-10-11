@@ -1,0 +1,9 @@
+{
+  "test": "vulnerable.js-sqli-negative",
+  "passed": true,
+  "details": {
+    "url": "http://127.0.0.1:44141/user?username=absent",
+    "status": 200,
+    "body": "null"
+  }
+}

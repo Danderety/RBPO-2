@@ -1,0 +1,16 @@
+{
+  "test": "vulnerable.js-xss-browser-replay",
+  "passed": true,
+  "timestamp_utc": "2026-09-17T15:36:31.039Z",
+  "browser": "153.0.4234.32",
+  "platform": "win32",
+  "method": "browser_replay_saved_http",
+  "source": "reports/participant-04/evidence/vulnerable.js-xss.json",
+  "source_sha256": "dff68b395ae21322f5500c62dca91af19f91e2b0ff7c46483b19b15dc50ca3a5",
+  "details": {
+    "marker": true,
+    "dialogs": [],
+    "scriptCount": 1,
+    "scope": "Execution of saved HTTP HTML in a fresh browser context with external requests blocked; live server and session behaviour not retested."
+  }
+}

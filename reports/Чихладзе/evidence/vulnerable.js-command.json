@@ -1,0 +1,9 @@
+{
+  "test": "vulnerable.js-command",
+  "passed": true,
+  "details": {
+    "url": "http://127.0.0.1:44141/ping?host=127.0.0.1%3B+printf+RBPO_CMD",
+    "status": 200,
+    "body": "RBPO_CMD"
+  }
+}
